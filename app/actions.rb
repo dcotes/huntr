@@ -3,6 +3,9 @@ get '/' do
   erb :index
 end
 
+get '/hunt' do
+  erb :single
+end
 
 
 #testcode
