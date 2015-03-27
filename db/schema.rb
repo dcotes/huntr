@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 20150326060419) do
     t.integer  "user_id"
     t.integer  "hunt_id"
     t.integer  "location_id"
-    t.boolean  "complete?",    default: false, null: false
-    t.boolean  "active?",      default: false, null: false
+    t.boolean  "complete",     default: false, null: false
+    t.boolean  "active",       default: false, null: false
     t.integer  "current_hint",                 null: false
     t.integer  "used_hints",   default: 0,     null: false
     t.datetime "created_at",                   null: false

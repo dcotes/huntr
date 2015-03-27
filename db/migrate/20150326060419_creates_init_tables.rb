@@ -20,8 +20,8 @@ class CreatesInitTables < ActiveRecord::Migration
 
     create_table :play_sessions do |t|
       t.references :user, :hunt, :location
-      t.boolean :complete?,default: false,  null: false
-      t.boolean :active?,default: false, null: false
+      t.boolean :complete,default: false,  null: false
+      t.boolean :active,default: false, null: false
       t.integer :current_hint, null: false
       t.integer :used_hints, null: false, default: 0
       t.timestamps null: false

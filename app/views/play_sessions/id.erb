@@ -11,15 +11,26 @@
 <p>lat: <%= @play_session.location.lat %></p>  
 <p>lon: <%= @play_session.location.lon %></p>  
 
- <h1>Answer?</h1>
+<% if @play_session.complete %>
+<h1>COMPLETED!</h1>
+<% end %>
+
+<form style="display: inline" method='post' action='/user_sessions'>
+  <input name="_method" type="hidden" value="delete" />
+  <input class="btn btn-default" type="submit" value="Get a HINT">
+</form>
+
+
+ <h1>guess?</h1>
  <hr/>
- <form method='post' action='/hunts'>
+ <form method='post' action="/play_sessions/<%= @play_session.id %>">
   Latitude:<br>
-  <input type="text" name="latitude">
+  <input type="text" name="guess_lat">
   <br>
   Longitude:<br>
-  <input type="text" name="longitude">
+  <input type="text" name="guess_lon">
   <div>
+    <input name="_method" type="hidden" value="put" />
     <input type="submit" value="Submit">
   </div>
 </form>

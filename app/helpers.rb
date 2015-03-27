@@ -13,4 +13,17 @@ helpers  do
       Hunt.all 
     end
   end
+
+  def check_answer(play_session,guess)
+    right_answer = [play_session.location.lat, play_session.location.lon]
+    distance = Geocoder::Calculations.distance_between(right_answer, guess)
+    distance <= 5 #define tolerance
+  end
+
+  def play_session_next_location(play_session)
+    next_location =  play_session.hunt.locations.where('id > (?)', play_session.location.id ).first
+    next_location ? (play_session.location = next_location) : play_session.complete = true
+    play_session.save
+
+  end
 end

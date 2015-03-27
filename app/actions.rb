@@ -111,6 +111,7 @@ end
 
 put '/hunts/:id' do
   # - Replaces user :id (probable after edit)
+
   redirect '/' if !@current_user
 end
 
@@ -150,7 +151,7 @@ end
 get '/play_sessions/:id' do
   #show specific user
   redirect '/' if !@current_user
-  binding.pry
+  
   @play_session = PlaySession.find(params[:id])
   redirect '/' if @current_user.id != @play_session.user_id
   @hunt = Hunt.find(@play_session.hunt_id)
@@ -159,12 +160,19 @@ end
 
 get '/play_sessions/:id/edit' do
   #form to edit :id
+  binding.pry
+  
   redirect '/' if !@current_user
 end
 
 put '/play_sessions/:id' do
   # - Replaces user :id (probable after edit)
   redirect '/' if !@current_user
+  @play_session = PlaySession.find(params[:id])
+  result = check_answer(@play_session, [params[:guess_lat], params[:guess_lon]])
+  play_session_next_location(@play_session) if result 
+
+  redirect "/play_sessions/#{params[:id]}"
 end
 
 delete '/play_sessions/:id' do  
