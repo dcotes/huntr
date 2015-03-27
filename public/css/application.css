@@ -18,5 +18,16 @@ color: #CD9C4E;
 .start_button{
   margin-top: 2%;
   font-size: 150%;
+}
 
+.overlay{
+z-index: 10;
+}
+
+#myTabContentOverlay{
+  height:500px;
+}
+
+.bottom{
+  margin-top:2%;
 }

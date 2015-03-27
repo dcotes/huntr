@@ -11,6 +11,10 @@ get '/hunts' do
   erb :hunts
 end
 
+get '/hunts/new' do
+  erb :hunts_new
+end
+
 
 #testcode
 get '/test' do
