@@ -338,14 +338,15 @@ input[type="color"]:focus,
 }
 
 .navbar-default .navbar-nav > .active > a::after{
-	content: "";
+	content: "\f041";
 	position: absolute;
 	left: 50%;
-	bottom: 15px;
-	height: 8px;
+	bottom: 32px;
+	height: 0px;
 	width: 8px;
 	margin-left: -4px;
 	background: #CD9C4E;
+	font-family: FontAwesome;
 	-webkit-border-radius: 100%;
 	   -moz-border-radius: 100%;
 		-ms-border-radius: 100%;
@@ -633,7 +634,8 @@ input[type="color"]:focus,
 	position: relative;
 	width: 100%;
 	padding: 60px 0;
-	background: #f4f4f4;
+	background: #EAEAE7;
+	/*f4f4f4*/
 }
 
 .heading-title{
@@ -645,7 +647,7 @@ input[type="color"]:focus,
 
 .heading-title h2{
 	position: relative;
-	display: inline;
+	/*display: inline;*/
 	padding: 12px 20px;
 	font-size: 28px;
 	line-height: 32px;
@@ -665,7 +667,7 @@ input[type="color"]:focus,
 }
 
 .heading-title h2::before{
-	content: '';
+	content: '\f041';
 	position: absolute;
 	left: 50%;
 	top: 0;
@@ -674,7 +676,8 @@ input[type="color"]:focus,
 	height: 30px;
 	margin-top: -16px;
 	margin-left: -15px;
-	background: #f4f4f4;
+	background: #EAEAE7;
+	font-family:FontAwesome;
 	-webkit-border-radius: 100%;
 	   -moz-border-radius: 100%;
 		-ms-border-radius: 100%;
@@ -683,7 +686,7 @@ input[type="color"]:focus,
 }
 
 .heading-title h2::after{
-	content: '';
+	
 	position: absolute;
 	left: 50%;
 	top: 0;
@@ -2007,7 +2010,7 @@ input[type="color"]:focus,
 #footer{
 	width: 100%;
 	padding: 60px 0 0;
-	background-color: #0f101a;
+	background-color: #103057;
 }
 
 #footer .widget:before,

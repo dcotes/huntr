@@ -5,3 +5,18 @@ color: #CD9C4E;
 .hunt_stars{
   margin-top:8px;
 }
+
+.footer_text{
+  color:#8E939A;
+}
+
+.hunt_location{
+  font-weight: 100;
+  font-size: 70%;
+}
+
+.start_button{
+  margin-top: 2%;
+  font-size: 150%;
+
+}
