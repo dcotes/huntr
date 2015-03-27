@@ -1,0 +1,7 @@
+<h1>Treasure Hunt</h1>
+<h2> Your hunts:</h2>
+<ul>
+  <% @hunts.each do |hunt| %>
+    <li><a href="/hunts/<%= hunt.id %>"><%="#{hunt.name} : #{hunt.description}" %></li>  </a>
+  <% end %>
+</ul>
