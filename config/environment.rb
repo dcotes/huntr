@@ -28,3 +28,10 @@ require APP_ROOT.join('config', 'database')
 
 # Load the routes / actions
 require APP_ROOT.join('app', 'actions')
+
+# Dir["./app/models/*.rb"].each {|file| require file }
+require_relative '../app/models/hint.rb'
+require_relative '../app/models/hunt.rb'
+require_relative '../app/models/location.rb'
+require_relative '../app/models/play_session.rb'
+require_relative '../app/models/user.rb'

@@ -1,6 +1,7 @@
 require 'rake'
 require "sinatra/activerecord/rake"
 require ::File.expand_path('../config/environment', __FILE__)
+require_relative './db/seed.rb'
 
 Rake::Task["db:create"].clear
 Rake::Task["db:drop"].clear
@@ -9,6 +10,11 @@ Rake::Task["db:drop"].clear
 desc "create the database"
 task "db:create" do
   touch 'db/db.sqlite3'
+end
+
+desc "populate db"
+task "db:populate" do
+  Seed.import
 end
 
 desc "drop the database"

@@ -1,1 +1,25 @@
-<h1>Home Page</h1>
+<h1>Treasure Hunt</h1>
+<% if !@current_user %>
+  <a method='get' href="/users/new" >Create a new user</a>
+  <h1>Login</h1>
+  <form method='post' action='/user_sessions'>
+     email:<br>
+     <input type="text" name="email">
+     <br>
+     password:<br>
+     <input type="password" name="password">
+     <div>
+       <input type="submit" value="Submit">
+     </div>
+  </form>
+<% end %>
+
+<% if @current_user %>
+  <a method='get' href="/hunts" >My created hunts</a>
+  <br>
+  <a method='get' href="/hunts/new" >Create a Hunt</a>
+  <br>
+  <a method='get' href="/play_sessions/new" >Go Hunt!!!</a>
+  <br>
+  <a method='get' href="/play_sessions" >Playing Hunts!!!</a>
+<% end %>
