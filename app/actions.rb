@@ -4,7 +4,11 @@ get '/' do
 end
 
 get '/hunt' do
-  erb :single
+  erb :hunt
+end
+
+get '/hunts' do
+  erb :hunts
 end
 
 
