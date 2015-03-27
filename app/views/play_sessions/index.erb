@@ -1,6 +1,6 @@
 <h2> played hunts:</h2>
 <ul>
   <% @play_sessions.each do |play_session| %>
-    <li><a href="/play_sessions/<%= play_session.id %>"><%="Hunt id: #{play_session.hunt_id} : Completed? #{play_session.complete?}" %></li>  </a>
+    <li><a href="/play_sessions/<%= play_session.id %>"><%="Hunt name: #{play_session.hunt.name} : Completed? #{play_session.complete?}" %></li>  </a>
   <% end %>
 </ul>

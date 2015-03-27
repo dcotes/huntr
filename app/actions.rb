@@ -78,6 +78,7 @@ end
 post '/hunts' do
   #creates a new user
   redirect '/' if !@current_user
+  #############ADD LOCATIONS PARAMSSS to hunt creation
   @hunt = Hunt.create(name: params[:name], level: params[:level], city: params[:password], description: params[:description], user_id: @current_user.id)
   redirect '/hunts'
 end
@@ -124,10 +125,11 @@ post '/play_sessions' do
   #creates a new user
   redirect '/' if !@current_user
   @hunt = Hunt.find(params[:hunt_id])
+  binding.pry
   @play_session = PlaySession.create(user_id: @current_user.id,
                               current_hint: @hunt.locations.first.hints.first.id,
                               hunt_id: params[:hunt_id],
-                              location_id: @hunt.locations.first)
+                              location_id: @hunt.locations.first.id)
   
   redirect "/play_sessions/#{@play_session.id}"
 end
@@ -135,7 +137,7 @@ end
 get '/play_sessions/new' do
   #form to create new user
   redirect '/' if !@current_user
-  @hunts = Hunt.all
+  @hunts = Hunt.where('id not in (?)', @current_user.play_sessions.pluck(:hunt_id))
   @play_session = PlaySession.new()
   erb :'play_sessions/new'
 end

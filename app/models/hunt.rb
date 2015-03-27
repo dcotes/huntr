@@ -4,4 +4,5 @@ class Hunt < ActiveRecord::Base
   belongs_to :user
 
   validates :level, inclusion: { in: 1..3 }
+  validates :locations, :length => { minimum: 3, message: "Needs minimum 3 locations." }
 end
