@@ -1,5 +1,5 @@
 # Homepage (Root path)
-enable :sessions
+require_relative 'helpers'
 
 before do
   if session[:user_id]
@@ -12,7 +12,7 @@ get '/' do
 end
 
 post '/user_sessions' do
-  @current_user = User.where(email: params[:email]).first
+  @current_user = User.find_by(email: params[:email])
 
   if @current_user and @current_user[:password] == params[:password]
     session.clear
@@ -78,8 +78,15 @@ end
 post '/hunts' do
   #creates a new user
   redirect '/' if !@current_user
-  #############ADD LOCATIONS PARAMSSS to hunt creation
+
   @hunt = Hunt.create(name: params[:name], level: params[:level], city: params[:password], description: params[:description], user_id: @current_user.id)
+    @location1 = Location.create(hunt_id: @hunt.id, lat: params[:location1_lat], lon: params[:location1_lon] , clue: params[:location1_clue] , name: params[:location1_name] )
+      @hint_l1 = Hint.create(location_id: @location1.id, body: params[:location1_hint])
+    @location2 = Location.create(hunt_id: @hunt.id, lat: params[:location2_lat], lon: params[:location2_lon] , clue: params[:location2_clue] , name: params[:location2_name] )
+      @hint_l2 = Hint.create(location_id: @location2.id, body: params[:location2_hint])
+    @location3 = Location.create(hunt_id: @hunt.id, lat: params[:location3_lat], lon: params[:location3_lon] , clue: params[:location3_clue] , name: params[:location3_name] )
+      @hint_l3 = Hint.create(location_id: @location3.id, body: params[:location2_hint])
+
   redirect '/hunts'
 end
 
@@ -122,12 +129,11 @@ get '/play_sessions' do
 end
 
 post '/play_sessions' do
-  #creates a new user
+  #creates play_session
   redirect '/' if !@current_user
   @hunt = Hunt.find(params[:hunt_id])
-  binding.pry
   @play_session = PlaySession.create(user_id: @current_user.id,
-                              current_hint: @hunt.locations.first.hints.first.id,
+                              current_hint: @hunt.locations.first.hints.first.id, #fix this
                               hunt_id: params[:hunt_id],
                               location_id: @hunt.locations.first.id)
   
@@ -137,14 +143,14 @@ end
 get '/play_sessions/new' do
   #form to create new user
   redirect '/' if !@current_user
-  @hunts = Hunt.where('id not in (?)', @current_user.play_sessions.pluck(:hunt_id))
-  @play_session = PlaySession.new()
+  @hunts = user_available_hunts
   erb :'play_sessions/new'
 end
 
 get '/play_sessions/:id' do
   #show specific user
   redirect '/' if !@current_user
+  binding.pry
   @play_session = PlaySession.find(params[:id])
   redirect '/' if @current_user.id != @play_session.user_id
   @hunt = Hunt.find(@play_session.hunt_id)

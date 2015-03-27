@@ -1,6 +1,14 @@
 class Seed 
   class << self
     def import
+      
+      User.destroy_all
+      Hint.destroy_all
+      Hunt.destroy_all
+      PlaySession.destroy_all
+      Location.destroy_all
+
+
       @user1 = User.create!(email: 'andsbf@gmail.com', nickname: 'Anderson', password: '123')
       @user2 = User.create!(email: 'andrew@good.com', nickname: 'drew', password: '123')
   

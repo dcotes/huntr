@@ -7,6 +7,10 @@
 <p>description: <%= @hunt.description  %></p>  
 <p>clue: <%= @play_session.location.clue %></p>  
 
+<p>right answer</p>
+<p>lat: <%= @play_session.location.lat %></p>  
+<p>lon: <%= @play_session.location.lon %></p>  
+
  <h1>Answer?</h1>
  <hr/>
  <form method='post' action='/hunts'>
