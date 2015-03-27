@@ -1,0 +1,13 @@
+ <h1>Go Hunt!!!</h1>
+ <hr/>
+<h2>Available hunts</h2>
+<ul>
+  <% @hunts.each do |hunt| %>
+      
+      <form style="display: inline" method='post' action='/play_sessions'>
+        <input class="btn btn-default" type="submit" value="<%= hunt.name %>">
+        <input name="hunt_id" type="hidden" value="<%= hunt.id %>">
+      </form>
+    
+  <% end %>
+</ul>
