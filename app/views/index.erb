@@ -83,24 +83,27 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="property-container">
-              <div class="property-image">
-                <img src="img/img02.jpg" alt="arillo real estate theme">
-                <div class="property-price">
-                  <h4>West Side</h4>
-                  <span>500 <span class="logo_r">Au</span>
-                </div>
-              </div>
-              <div class="property-features">
-                <span><i class="fa fa-plane"></i> 5 KM</span>
-                <span><i class="fa fa-map-marker"></i> 10 locations</span>
-                <span><i class="fa fa-trophy"></i> Medium</span>
-              </div>
-              <div class="property-content">
-                <h3><a href="#">The Davie Dash</a> <small>When all the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true gener Inter.</small></h3>
-              </div>
-            </div>
+              <% @hunts.each do |hunt| %>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <div class="property-container">
+                    <div class="property-image">
+                    <img src="https://www.paladinregistry.com/assets/icon-map-d9027152ea7aa05701d604aba74ef622.png">
+                      <div class="property-price">
+                        <h4><%= hunt.city %></h4>
+                        <span>500 <span class="logo_r">Au</span>
+                      </div>
+                    </div>
+                    <div class="property-features">
+                      <span><i class="fa fa-plane"></i> 5 KM</span>
+                      <span><i class="fa fa-map-marker"></i> 10 locations</span>
+                      <span><i class="fa fa-trophy"></i> Medium</span>
+                    </div>
+                    <div class="property-content">
+                      <h3><a href="hunts/<%hunt.id%>"><%= hunt.name %></a> <small><%= hunt.description %></small></h3> 
+                    </div>  
+                  </div>
+                </div> 
+              <% end %>
           </div>
           <!-- break -->  
         </div>

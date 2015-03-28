@@ -8,7 +8,9 @@ before do
 end
 
 get '/' do
+  @hunts = Hunt.all
   erb :'index'
+
 end
 
 post '/user_sessions' do
