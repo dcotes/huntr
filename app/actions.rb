@@ -154,6 +154,7 @@ get '/play_sessions/:id' do
   @play_session = PlaySession.find(params[:id])
   redirect '/' if @current_user.id != @play_session.user_id
   @hunt = Hunt.find(@play_session.hunt_id)
+
   @hints = hints_to_display(@play_session)
   erb :'play_sessions/id'
 end
@@ -169,9 +170,9 @@ put '/play_sessions/:id' do
   redirect '/' if !@current_user
 
   @play_session = PlaySession.find(params[:id])
-  
-  play_session_next_hint(@play_session)
+  binding.pry
 
+  play_session_next_hint(@play_session) if params[:hint_request] == 'true'
   result = check_answer(@play_session, [params[:guess_lat], params[:guess_lon]])
   play_session_next_location(@play_session) if result 
 
