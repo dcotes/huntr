@@ -7,7 +7,11 @@ require 'active_support/all'
 require 'sinatra'
 require 'sinatra/activerecord'
 
+require 'geocoder'
+
 require 'pry'
+
+
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
@@ -28,3 +32,10 @@ require APP_ROOT.join('config', 'database')
 
 # Load the routes / actions
 require APP_ROOT.join('app', 'actions')
+
+# Dir["./app/models/*.rb"].each {|file| require file }
+require_relative '../app/models/hint.rb'
+require_relative '../app/models/hunt.rb'
+require_relative '../app/models/location.rb'
+require_relative '../app/models/play_session.rb'
+require_relative '../app/models/user.rb'

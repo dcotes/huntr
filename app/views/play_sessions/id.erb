@@ -1,0 +1,44 @@
+
+ <h1>Play!!!</h1>
+ <hr/>
+<%= @current_user.email  %>
+<p>is now hunting: </p>
+<p>Hunt name: <%= @hunt.name  %></p>  
+<p>description: <%= @hunt.description  %></p>  
+<p>clue: <%= @play_session.location.clue %></p>  
+
+<p>right answer</p>
+<p>lat: <%= @play_session.location.lat %></p>  
+<p>lon: <%= @play_session.location.lon %></p>  
+
+<% if @play_session.complete %>
+<h1>COMPLETED!</h1>
+<% end %>
+
+<% if @hints %>
+  <% @hints.each do |hint| %>
+    <li><%= hint.body %></li>
+  <% end %>
+<% end %>
+
+
+<form method='post' action="/play_sessions/<%= @play_session.id %>">
+  <input name="_method" type="hidden" value="put" />
+  <input name="hint_request" type="hidden" value="true" />
+  <input class="btn btn-default" type="submit" value="HINT">
+</form>
+
+
+ <h1>guess?</h1>
+ <hr/>
+ <form method='post' action="/play_sessions/<%= @play_session.id %>">
+  Latitude:<br>
+  <input type="text" name="guess_lat">
+  <br>
+  Longitude:<br>
+  <input type="text" name="guess_lon">
+  <div>
+    <input name="_method" type="hidden" value="put" />
+    <input type="submit" value="Submit">
+  </div>
+</form>

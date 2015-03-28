@@ -10,11 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321144528) do
+ActiveRecord::Schema.define(version: 20150327234147) do
+
+  create_table "hints", force: true do |t|
+    t.integer  "location_id", null: false
+    t.string   "body",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "hunts", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name",        null: false
+    t.integer  "level",       null: false
+    t.string   "city"
+    t.integer  "target_time"
+    t.text     "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "locations", force: true do |t|
+    t.integer  "hunt_id",    null: false
+    t.decimal  "lat",        null: false
+    t.decimal  "lon",        null: false
+    t.string   "clue",       null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "play_sessions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "hunt_id"
+    t.integer  "location_id"
+    t.boolean  "complete",        default: false, null: false
+    t.boolean  "active",          default: false, null: false
+    t.integer  "current_hint_id", default: 0,     null: false
+    t.integer  "used_hints",      default: 0,     null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
 
   create_table "users", force: true do |t|
-    t.string "name"
-    t.string "email"
+    t.string   "email",                        null: false
+    t.string   "password",                     null: false
+    t.string   "nickname",   default: "email"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
 end
