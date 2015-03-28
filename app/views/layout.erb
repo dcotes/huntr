@@ -52,18 +52,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html"><span>HUNT<strong class="logo_r">r</strong></span></a>
+          <a class="navbar-brand" href="/"><span>HUNT<strong class="logo_r">r</strong></span></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-top">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li class="active"><a href="/">Home</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hunts<b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="hunts">All Hunts</a></li>
-                <li><a href="search_list.html">Add A Hunt</a></li>
+                <li><a href="/hunts">All Hunts</a></li>
+                <li><a href="/hunts/new">Add A Hunt</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -94,14 +94,14 @@
             <h4 class="modal-title">Sign in</h4>
           </div>
           <div class="modal-body">
-            <form role="form">
+            <form id='signin_form' method='post' action='/user_sessions' role="form" >
               <div class="form-group">
                 <label for="emailAddress">Email address</label>
-                <input type="email" class="form-control input-lg" placeholder="Enter email">
+                <input name='email' type="email" class="form-control input-lg" placeholder="Enter email">
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control input-lg" placeholder="Password">
+                <input name="password" type="password" class="form-control input-lg" placeholder="Password">
               </div>
               <div class="checkbox">
                 <label>
@@ -111,8 +111,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <p>Don't have account ? <a href="#modal-signup"  data-toggle="modal" data-target="#modal-signup">Sign up here.</a></p>
-            <input type="submit" class="btn btn-primary btn-block btn-lg" value="Sign in">
+            <p>Don't have account ? <a method='get' href="/users/new" data-toggle="modal" data-target="#modal-signup">Sign up here.</a></p>
+            <input form="signin_form" type="submit" class="btn btn-primary btn-block btn-lg" value="Sign in">
           </div>
         </div>
       </div>

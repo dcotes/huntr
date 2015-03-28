@@ -1,7 +1,273 @@
-<h1>Treasure Hunt</h1>
-<h2>Hunts You have created:</h2>
-<ul>
-  <% @hunts.each do |hunt| %>
-    <li><a href="/hunts/<%= hunt.id %>"><%="#{hunt.name} : #{hunt.description}" %></li>  </a>
-  <% end %>
-</ul>
+  <body id="top">
+
+    <!-- begin:header -->
+    <div id="header" class="heading" style="background-image: url(img/img01.jpg);">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 col-sm-12">
+            <div class="page-title">
+              <h2>Category : <span>All</span></p>
+            </div>
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Hunts</a></li>
+              <li class="active">All</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end:header -->
+
+    <!-- begin:content -->
+    <div id="content">
+      <div class="container">
+        <div class="row">
+          <!-- begin:article -->
+          <div class="col-md-9 col-md-push-3">
+            <!-- begin:sorting -->
+            <div class="row sort">
+              <div class="col-md-4 col-sm-4 col-xs-3">
+                <a href="category.html" class="btn btn-primary"><i class="fa fa-th"></i></a>
+                <a href="category_list.html" class="btn btn-default"><i class="fa fa-list"></i></a>
+              </div>
+              <div class="col-md-8 col-sm-8 col-xs-9">
+                <form class="form-inline" role="form">
+                  <span>Sort by : </span>
+                  <div class="form-group">
+                    <label class="sr-only" for="sortby">Sort by : </label>
+                    <select class="form-control">
+                      <option>Most Recent</option>
+                      <option>Most Popular</option>
+                    </select>
+                  </div>
+                  <span>Show : </span>
+                  <div class="form-group">
+                    <label class="sr-only" for="show">Show : </label>
+                    <select class="form-control">
+                      <option>6</option>
+                      <option>10</option>
+                      <option>15</option>
+                      <option>20</option>
+                      <option>25</option>
+                      <option>50</option>
+                      <option>100</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- end:sorting -->
+
+            <!-- begin:product -->
+            <div class="row container-realestate">
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="property-container">
+              <div class="property-image">
+                <img src="img/img02.jpg" alt="arillo real estate theme">
+                <div class="property-price">
+                  <h4>West Side</h4>
+                  <span>500 <span class="logo_r">Au</span>
+                </div>
+              </div>
+              <div class="property-features">
+                <span><i class="fa fa-plane"></i> 5 KM</span>
+                <span><i class="fa fa-map-marker"></i> 10 locations</span>
+                <span><i class="fa fa-trophy"></i> Medium</span>
+              </div>
+              <div class="property-content">
+                <h3><a href="hunts/1">The Davie Dash</a> <small>When all the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true gener Inter.</small></h3>
+              </div>
+            </div>
+              </div>
+              <!-- break -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="property-container">
+                  <div class="property-image">
+                    <img src="img/img03.jpg" alt="arillo real estate theme">
+                    <div class="property-price">
+                      <h4>Greater Vancouver</h4>
+                      <span>1100 <span class="logo_r">Au</span>
+                    </div>
+                    <div class="property-status">
+                      <span>Sponsored</span>
+                    </div>
+                  </div>
+                  <div class="property-features">
+                    <span><i class="fa fa-plane"></i> 10 KM</span>
+                    <span><i class="fa fa-map-marker"></i> 15 locations</span>
+                    <span><i class="fa fa-trophy"></i> Hard</span>
+                  </div>
+                  <div class="property-content">
+                    <h3><a href="#">Green Grind</a> <small>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</small></h3>
+                </div>
+            </div>
+              </div>
+              <!-- break -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                  <div class="property-container">
+                    <div class="property-image">
+                      <img src="img/img04.jpg" alt="arillo real estate theme">
+                      <div class="property-price">
+                        <h4>Chinatown - East Van</h4>
+                        <span>450 <span class="logo_r">Au</span>
+                      </div>
+                      
+                    </div>
+                    <div class="property-features">
+                      <span><i class="fa fa-plane"></i> 1.5 KM</span>
+                      <span><i class="fa fa-map-marker"></i> 6 locations</span>
+                      <span><i class="fa fa-trophy"></i> Easy</span>
+                    </div>
+                    <div class="property-content">
+                      <h3><a href="#">Eastside Sprint</a> <small>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</small></h3>
+                    </div>
+                </div>
+              </div>
+
+            </div>
+            <!-- end:product -->
+
+            <!-- begin:pagination -->
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="pagination">
+                  <li class="disabled"><a href="#">&laquo;</a></li>
+                  <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- end:pagination -->
+          </div>
+          <!-- end:article -->
+
+          <!-- begin:sidebar -->
+          <div class="col-md-3 col-md-pull-9 sidebar">
+            <div class="widget widget-white">
+              <div class="widget-header">
+                <h3>Advance Search</h3>
+              </div>    
+              <form role="form" class="advance-search">
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-primary">
+                    <input type="radio" name="options" id="option1"> Community
+                  </label>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="options" id="option2"> Sponsored
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label for="location">Difficulty</label>
+                  <select class="form-control">
+                    <option>Easy</option>
+                    <option>Medium</option>
+                    <option>Hard</option>
+                    <option>Impossible</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="type">Estimated Time</label>
+                  <select class="form-control">
+                    <option> Less Than 1 HR</option>
+                    <option>1-2 HR</option>
+                    <option>3-4 HR</option>
+                    <option>4-8 HR</option>
+                    <option>24+ HR</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="beds">Distance</label>
+                  <select class="form-control">
+                    <option>Less Than 2 KM</option>
+                    <option>3-5 KM</option>
+                    <option>6-8 KM</option>
+                    <option>9-12 KM</option>
+                    <option>13+ KM</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="baths">Gold</label>
+                  <select class="form-control">
+                    <option>Less Than 100 Au</option>
+                    <option>200-400 Au</option>
+                    <option>401-600 Au</option>
+                    <option>601-800 Au</option>
+                    <option>801-100+ Au</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="min-area">Starts Near</label>
+                  <input type="text" class="form-control" placeholder="Enter a starting location">
+                </div>
+                <input type="submit" name="submit" value="Search" class="btn btn-primary btn-block">
+              </form>
+            </div>
+            <!-- break -->
+            <div class="widget widget-sidebar widget-white">
+              <div class="widget-header">
+                <h3>Most Popular Prospectors</h3>
+              </div>    
+              <ul class="list-check">
+                <li><a href="#">BIGBOI202</a>&nbsp;(18 Hunts)</li>
+                <li><a href="#">FreshSlice</a>&nbsp;(43 Hunts)</li>
+                <li><a href="#">GoldDigger1</a>&nbsp;(31 Hunts)</li>
+                <li><a href="#">BobDD</a>&nbsp;(52 Hunts)</li>
+                <li><a href="#">Anonymous112</a>&nbsp;(8 Hunts)</li>
+                <li><a href="#">CobraZ707</a>&nbsp;(11 Hunts)</li>
+              </ul>
+            </div>
+            <!-- break -->
+          </div>
+          <!-- end:sidebar -->
+          
+        </div>
+      </div>
+    </div>
+    <!-- end:content -->
+
+    <!-- begin:partner -->
+   <div id="partner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="heading-title bg-white">
+              <h2>Sponsored Hunts</h2>
+            </div>
+          </div>
+        </div>
+        <!-- break -->
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="jcarousel-wrapper">
+              <div class="jcarousel">
+                <ul>
+                  <li><a href="#"><img src="img/img02.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                  <li><a href="#"><img src="img/img02.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                  <li><a href="#"><img src="img/img03.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                  <li><a href="#"><img src="img/img04.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                  <li><a href="#"><img src="img/img05.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                  <li><a href="#"><img src="img/img03.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                </ul>
+              </div>
+              <a href="#" class="jcarousel-control-prev"><i class="fa fa-angle-left"></i></a>
+              <a href="#" class="jcarousel-control-next"><i class="fa fa-angle-right"></i></a>
+              <!-- <p class="jcarousel-pagination"></p> -->
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+    <!-- end:partner -->
+
+   
