@@ -72,7 +72,7 @@ end
 get '/hunts' do
   #get all hunts
   redirect '/' if !@current_user
-  @hunts = Hunt.where(user_id: @current_user.id)
+  @hunts = Hunt.all
   erb :'hunts/index'
 end
 
