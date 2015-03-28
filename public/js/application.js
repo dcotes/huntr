@@ -1,4 +1,7 @@
 $(document).ready(function() {
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('#hide_form').click(function(){   
+    $('#myTabContentOverlay').fadeOut(550);
+  });
 });
+
+
