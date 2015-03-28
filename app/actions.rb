@@ -15,6 +15,10 @@ get '/hunts/new' do
   erb :hunts_new
 end
 
+get '/play_session' do
+  erb :play_session
+end
+
 
 #testcode
 get '/test' do

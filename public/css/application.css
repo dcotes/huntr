@@ -16,7 +16,7 @@ color: #CD9C4E;
 }
 
 .start_button{
-  margin-top: 2%;
+  margin-top: 5%;
   font-size: 150%;
 }
 
@@ -47,4 +47,8 @@ color: #CD9C4E;
 
 .mapboxes.overlay{
 z-index: 10;
+}
+
+.hint{
+  background-color: #38935D
 }
