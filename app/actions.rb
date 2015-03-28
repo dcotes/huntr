@@ -8,6 +8,9 @@ before do
 end
 
 get '/' do
+  if session[:user_id]
+    @current_user = User.find(session[:user_id])
+  end
   @hunts = Hunt.all
   erb :'index'
 
@@ -40,6 +43,7 @@ end
 post '/users' do
   #creates a new user
   @user = User.create(email: params[:email], nickname: params[:nickname], password: params[:password])
+  session[:user_id] = @user[:id]
   redirect '/'
 end
 
@@ -73,7 +77,7 @@ end
 
 get '/hunts' do
   #get all hunts
-  redirect '/' if !@current_user
+  # redirect '/' if !@current_user
   @hunts = Hunt.all
   erb :'hunts/index'
 end
@@ -107,7 +111,7 @@ end
 
 get '/hunts/:id' do
   #show specific user
-  redirect '/' if !@current_user
+  # redirect '/' if !@current_user
   @hunt = Hunt.find(params[:id])
   erb :'hunts/id'
 end

@@ -83,7 +83,9 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div  class="col-md-12"><input type="submit" class="btn btn-primary btn-block btn-lg start_button" value="Start Hunting!"></div>
+                    <div  class="col-md-12">
+                      <form <input  type="submit" class="btn btn-primary btn-block btn-lg start_button" value="Start Hunting!">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -97,18 +99,18 @@
             <!-- break -->
             <div class="widget widget-sidebar widget-white">
               <div class="widget-header">
-                <h3>Dearest Stanley<br>
-                  <span class="hunt_location">Stanley Park</span><br>
+                <h3><%= @hunt.name %><br>
+                  <span class="hunt_location"><%= @hunt.city %></span><br>
                   <div class="hunt_stars logo_r"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
                 </h3>
                 <p></p>
               </div>    
               <ul>
-                <li><a><strong>Difficulty</strong>: Easy</a></li>
-                <li><a><strong>Locations</strong>: 4</a></li>
+                <li><a><strong>Difficulty</strong>: <%= @hunt.level %></a></li>
+                <li><a><strong>Locations</strong>: <%= @hunt.locations.count %></a></li>
                 <li><a><strong>Au</strong>: 400</a></li>
                 <li><a><strong>Distance</strong>: 1.5 KM</a></li>
-                <li><a><strong>Time</strong>: 3 Hr</a></li>
+                <li><a><strong>Time</strong>: <%= @hunt.target_time %> Hr</a></li>
               </ul>
             </div>
             <!-- break -->
