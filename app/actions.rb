@@ -12,7 +12,7 @@ get '/' do
 end
 
 post '/user_sessions' do
-  binding.pry
+
   @current_user = User.find_by(email: params[:email])
 
   if @current_user and @current_user[:password] == params[:password]
