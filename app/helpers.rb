@@ -7,6 +7,7 @@ helpers  do
 #   end  
 
   def user_available_hunts
+
     if @current_user.play_sessions.pluck(:hunt_id).any?
       Hunt.where('id not in (?)', @current_user.play_sessions.pluck(:hunt_id))
     else
@@ -22,8 +23,25 @@ helpers  do
 
   def play_session_next_location(play_session)
     next_location =  play_session.hunt.locations.where('id > (?)', play_session.location.id ).first
-    next_location ? (play_session.location = next_location) : play_session.complete = true
-    play_session.save
+    if next_location 
+      play_session.location = next_location
+      play_session.current_hint_id = 0
+    else
+      play_session.complete = true
+    end
 
+    play_session.save
+  end
+
+  def play_session_next_hint(play_session)
+    next_hint = play_session.location.hints.where('id > (?)', play_session.current_hint_id).first
+    play_session.current_hint = next_hint if next_hint
+    play_session.used_hints += 1 if next_hint
+    play_session.save
+  end
+
+  def hints_to_display(play_session)
+    num_hints_to_show = play_session.location.hints.where('id <= (?)', play_session.current_hint_id).count
+    play_session.location.hints.order("id ASC").limit(num_hints_to_show)
   end
 end

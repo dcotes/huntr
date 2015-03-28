@@ -22,7 +22,7 @@ class CreatesInitTables < ActiveRecord::Migration
       t.references :user, :hunt, :location
       t.boolean :complete,default: false,  null: false
       t.boolean :active,default: false, null: false
-      t.integer :current_hint, null: false
+      t.integer :current_hint, null: false, default: 0
       t.integer :used_hints, null: false, default: 0
       t.timestamps null: false
     end

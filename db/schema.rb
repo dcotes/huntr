@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326060419) do
+ActiveRecord::Schema.define(version: 20150327234147) do
 
   create_table "hints", force: true do |t|
     t.integer  "location_id", null: false
@@ -44,12 +44,12 @@ ActiveRecord::Schema.define(version: 20150326060419) do
     t.integer  "user_id"
     t.integer  "hunt_id"
     t.integer  "location_id"
-    t.boolean  "complete",     default: false, null: false
-    t.boolean  "active",       default: false, null: false
-    t.integer  "current_hint",                 null: false
-    t.integer  "used_hints",   default: 0,     null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "complete",        default: false, null: false
+    t.boolean  "active",          default: false, null: false
+    t.integer  "current_hint_id", default: 0,     null: false
+    t.integer  "used_hints",      default: 0,     null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "users", force: true do |t|

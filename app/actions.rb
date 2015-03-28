@@ -134,7 +134,6 @@ post '/play_sessions' do
   redirect '/' if !@current_user
   @hunt = Hunt.find(params[:hunt_id])
   @play_session = PlaySession.create(user_id: @current_user.id,
-                              current_hint: @hunt.locations.first.hints.first.id, #fix this
                               hunt_id: params[:hunt_id],
                               location_id: @hunt.locations.first.id)
   
@@ -155,12 +154,12 @@ get '/play_sessions/:id' do
   @play_session = PlaySession.find(params[:id])
   redirect '/' if @current_user.id != @play_session.user_id
   @hunt = Hunt.find(@play_session.hunt_id)
+  @hints = hints_to_display(@play_session)
   erb :'play_sessions/id'
 end
 
 get '/play_sessions/:id/edit' do
   #form to edit :id
-  binding.pry
   
   redirect '/' if !@current_user
 end
@@ -168,7 +167,11 @@ end
 put '/play_sessions/:id' do
   # - Replaces user :id (probable after edit)
   redirect '/' if !@current_user
+
   @play_session = PlaySession.find(params[:id])
+  
+  play_session_next_hint(@play_session)
+
   result = check_answer(@play_session, [params[:guess_lat], params[:guess_lon]])
   play_session_next_location(@play_session) if result 
 
