@@ -7,12 +7,31 @@
           <!-- begin:article -->
           <div class="col-md-9 col-md-push-3">
             <div class="row">
-              <div class="col-md-12 single-post">
-             
+              <div class="col-md-12 single-post" style=" position: relative; ">
+                <div id="myTabContentOverlay" class="tab-content overlay mapboxes">
+                          
+                  <form role="form">
 
-                <div id="myTabContent" class="tab-content">
+                    <h2 id="click"> Your New Hunt </h2>
+                    <div class="form-group">
+                      <input type="text" class="form-control input-lg" placeholder="Enter Challenge Name">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control input-lg" placeholder="Enter Starting Location">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control input-lg" placeholder="Select Dificulty">
+                    </div>
+                    
+                    <div class="row">
+                    <div class="col-md-12"><input id="hide_form"  class="btn btn-primary btn-block btn-lg start_button bottom" value="Next - Plan My Hunt!"></div>
+                  </div>
+                  </form>
+
+                </div>
+
+                <div id="myTabContent" class="tab-content mapboxes">
                   <div class="tab-pane fade in active" id="detail">
-                  <div class="row"><p class="text-center">"By the biggest building in the city, find the lion."</div>
                     <div class="row">
                       <div class="col-md-12">
 
@@ -84,10 +103,7 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-12">
-                    <input type="submit" class="btn btn-primary btn-block btn-lg start_button" value="Next Hint">
-                    <input type="submit" class="btn btn-primary btn-block btn-lg start_button hint" value="Make a Guess">
-                    </div>
+                    <div class="col-md-12"><input type="submit" class="btn btn-primary btn-block btn-lg start_button" value="Submit My Hunt To The Community!"></div>
                   </div>
                 </div>
               </div>
@@ -99,7 +115,7 @@
           <div class="col-md-3 col-md-pull-9 sidebar">
             
             <!-- break -->
-            <div class="widget widget-sidebar widget-white">
+            <div id="new_info"class="widget widget-sidebar widget-white">
               <div class="widget-header">
                 <h3>Dearest Stanley<br>
                   <span class="hunt_location">Stanley Park</span><br>
@@ -117,7 +133,19 @@
             </div>
             <!-- break -->
             
-           
+            <!-- break -->
+            <div class="widget widget-sidebar widget-white">
+              <div class="widget-header">
+                <h3>Top Huntrs</h3>
+              </div>    
+              <ul>
+                <li><a href="#">John Doe</a></li>
+                <li><a href="#">Christoper Drew</a></li>
+                <li><a href="#">Jane Doe</a></li>
+                <li><a href="#">Jeny</a></li>
+              </ul>
+            </div>
+            <!-- break -->
           </div>
           <!-- end:sidebar -->
           
@@ -126,9 +154,47 @@
     </div>
     <!-- end:content -->
 
+   
 
-<input type="hidden" name="p_lat" value="dummy_name">
-<input type="hidden" name="p_lon" value="dummy_name">
+    <!-- begin:partner -->
+    <div id="partner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="heading-title bg-white">
+              <h2>POPULAR HUNTS FROM MIKE87</h2>
+            </div>
+          </div>
+        </div>
+        <!-- break -->
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="jcarousel-wrapper">
+              <div class="jcarousel">
+                <ul>
+                  <li><a href="#"><img src="img/img02.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                  <li><a href="#"><img src="img/img02.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                  <li><a href="#"><img src="img/img03.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                  <li><a href="#"><img src="img/img04.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                  <li><a href="#"><img src="img/img05.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                  <li><a href="#"><img src="img/img03.jpg" alt="partner of arillo responsive real estate theme"></a></li>
+                </ul>
+              </div>
+              <a href="#" class="jcarousel-control-prev"><i class="fa fa-angle-left"></i></a>
+              <a href="#" class="jcarousel-control-next"><i class="fa fa-angle-right"></i></a>
+              <!-- <p class="jcarousel-pagination"></p> -->
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+    <!-- end:partner -->
+
    
 
 

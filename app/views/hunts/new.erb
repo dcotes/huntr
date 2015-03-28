@@ -7,7 +7,7 @@
           <!-- begin:article -->
           <div class="col-md-9 col-md-push-3">
             <div class="row">
-              <div class="col-md-12 single-post" style=" position: relative; ">
+              <div id="content_mover" class="col-md-12 single-post before_info" style=" position: relative; ">
                 <div id="myTabContentOverlay" class="tab-content overlay mapboxes">
                           
                   <form role="form">
@@ -115,7 +115,7 @@
           <div class="col-md-3 col-md-pull-9 sidebar">
             
             <!-- break -->
-            <div class="widget widget-sidebar widget-white">
+            <div id="hunt_sb1" class="widget widget-sidebar widget-white">
               <div class="widget-header">
                 <h3>Dearest Stanley<br>
                   <span class="hunt_location">Stanley Park</span><br>
@@ -134,9 +134,9 @@
             <!-- break -->
             
             <!-- break -->
-            <div class="widget widget-sidebar widget-white">
+            <div id="hunt_sb2"class="widget widget-sidebar widget-white">
               <div class="widget-header">
-                <h3>Top Huntrs</h3>
+                <h3>Locations</h3>
               </div>    
               <ul>
                 <li><a href="#">John Doe</a></li>
@@ -154,47 +154,14 @@
     </div>
     <!-- end:content -->
 
-   
+  
+<form name="new_hunt" action="hunts/new" method="POST">
+  <div>
+    <input type="hidden" name="name" value="dummy_name">
+    <input type="hidden" name="starting_location" value="dummy_starting_location">
+    <input type="hidden" name="difficulty" value="dummy_difficulty">
+  </div>
+</form>
 
-    <!-- begin:partner -->
-    <div id="partner">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="heading-title bg-white">
-              <h2>POPULAR HUNTS FROM MIKE87</h2>
-            </div>
-          </div>
-        </div>
-        <!-- break -->
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="jcarousel-wrapper">
-              <div class="jcarousel">
-                <ul>
-                  <li><a href="#"><img src="img/img02.jpg" alt="partner of arillo responsive real estate theme"></a></li>
-                  <li><a href="#"><img src="img/img02.jpg" alt="partner of arillo responsive real estate theme"></a></li>
-                  <li><a href="#"><img src="img/img03.jpg" alt="partner of arillo responsive real estate theme"></a></li>
-                  <li><a href="#"><img src="img/img04.jpg" alt="partner of arillo responsive real estate theme"></a></li>
-                  <li><a href="#"><img src="img/img05.jpg" alt="partner of arillo responsive real estate theme"></a></li>
-                  <li><a href="#"><img src="img/img03.jpg" alt="partner of arillo responsive real estate theme"></a></li>
-                </ul>
-              </div>
-              <a href="#" class="jcarousel-control-prev"><i class="fa fa-angle-left"></i></a>
-              <a href="#" class="jcarousel-control-next"><i class="fa fa-angle-right"></i></a>
-              <!-- <p class="jcarousel-pagination"></p> -->
-            </div>
-          </div>
-
-
-
-
-        </div>
-      </div>
-    </div>
-    <!-- end:partner -->
-
-   
 
 

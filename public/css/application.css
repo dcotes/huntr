@@ -52,3 +52,7 @@ z-index: 10;
 .hint{
   background-color: #38935D
 }
+
+.before_info{
+  left:-15%;
+}
