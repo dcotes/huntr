@@ -171,7 +171,7 @@ put '/play_sessions/:id' do
   redirect '/' if !@current_user
 
   @play_session = PlaySession.find(params[:id])
-  binding.pry
+
 
   play_session_next_hint(@play_session) if params[:hint_request] == 'true'
   result = check_answer(@play_session, [params[:guess_lat], params[:guess_lon]])
