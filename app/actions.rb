@@ -60,12 +60,12 @@ end
 
 get '/users/:id' do
   #show specific user
-  "<h1>under maintanance</h1>"
+    redirect '/'
 end
 
 put '/users/:id' do
   # - Replaces user :id (probable after edit)
-  "<h1>under maintanance</h1>"
+
 end
 
 delete '/users/:id' do  
@@ -112,9 +112,15 @@ end
 get '/hunts/:id' do
   #show specific user
   # redirect '/' if !@current_user
-  @hunt = Hunt.find(params[:id])
-  top_huntrs(@hunt)
-  erb :'hunts/id'
+  begin
+    @hunt = Hunt.find(params[:id])  
+
+    top_huntrs(@hunt)
+
+    erb :'hunts/id'
+  rescue ActiveRecord::RecordNotFound
+    redirect '/hunts'
+  end
 end
 
 put '/hunts/:id' do
@@ -158,13 +164,16 @@ end
 get '/play_sessions/:id' do
   #show specific user
   redirect '/' if !@current_user
-  
-  @play_session = PlaySession.find(params[:id])
-  redirect '/' if @current_user.id != @play_session.user_id
-  @hunt = Hunt.find(@play_session.hunt_id)
+  begin
+    @play_session = PlaySession.find(params[:id])
+    redirect '/' if @current_user.id != @play_session.user_id
+    @hunt = Hunt.find(@play_session.hunt_id)
 
-  @hints = hints_to_display(@play_session)
-  erb :'play_sessions/id'
+    @hints = hints_to_display(@play_session)
+    erb :'play_sessions/id'
+  rescue ActiveRecord::RecordNotFound
+    redirect '/'
+  end
 end
 
 get '/play_sessions/:id/edit' do
