@@ -30,25 +30,47 @@
 
                     <div class="col-md-12">
                     <ul>
-                    <li>Test</li>
+                      <% if @hints %>
+                        <% @hints.each do |hint| %>
+                          <li><%= hint.body %></li>
+                        <% end %>
+                      <% end %>
                     </ul>
                     </div>
-                    
-                    <form method='post' action="/play_sessions/<%= @play_session.id %>">
-                    <input name="_method" type="hidden" value="put" />
+
+                    <form id='hint_request' method='post' action="/play_sessions/<%= @play_session.id %>">
+                      <input form='hint_request' name="_method" type="hidden" value="put" />
+                    </form>
+                    <form id='guess_form' method='post' action="/play_sessions/<%= @play_session.id %>">
+                    <input form='guess_form' name="_method" type="hidden" value="put" />
                       <!-- <input type="submit" class="btn btn-primary btn-block btn-lg start_button" value="Next Hint">  
                       <input type="submit" class="btn btn-primary btn-block btn-lg start_button hint" value="Make a Guess"> -->
                       <div class="btn-group btn-group-justified" role="group" aria-label="...">
                         <div class="btn-group" role="group">
-                          <button type="button" class="btn btn-default">Hint</button>
+                          <input form='hint_request' type="submit"  class="btn btn-default" value="Hint">
+                          <input form='hint_request' name="hint_request" type="hidden" value="true" />
                         </div>
                         <div class="btn-group" role="group">
-                          <button type="button" class="btn btn-success">Guess</button>
+                          <input form='guess_form' type="submit" class="btn btn-success" value="Guess">
                         </div>
                         <div class="btn-group" role="group">
-                          <input type="submit" class="btn btn-default" value="Suspend">
+                          <input form='guess_form' type="submit" class="btn btn-default" value="Suspend">
                         </div>
                       </div>
+                        <hr/>
+                        <% if !@play_session.complete %>
+                        <h3>Dev: Temporary Guess Box</h3>
+                              
+                              Latitude:<input form='guess_form' type="text" name="guess_lat">
+                              Longitude:<input form='guess_form' type="text" name="guess_lon">
+                              <br>
+                              <p style="color:white; font-size:200%">lat:<span style="padding-left: 50px; padding-right:30px"><%= @play_session.location.lat %></span> 
+                              lon: <span style="padding-left: 50px;"><%= @play_session.location.lon %></span></p>  
+                        <% end %>
+                        <% if @play_session.complete %>
+                          <h1>Hunt COMPLETED!</h1>
+                        <% end %>
+                        <hr/>
                     </form>
                     </div>
                   </div>
@@ -66,12 +88,14 @@
               <div class="widget-header">
                 <h3><%= @play_session.hunt.name %><br>
                   <span class="hunt_location"><%= @play_session.hunt.city %></span><br>
-                  <div class="hunt_stars logo_r"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                  <div class="hunt_stars logo_r">
+                    <% @play_session.hunt.level.times do %> <i class="fa fa-star"></i> <% end %>
+                  </div>
                 </h3>
                 
               </div>    
               <ul>
-                <li><a><strong>Difficulty</strong>: <%= @play_session.hunt.level %></a></li>
+                <li><a><strong>Difficulty</strong>: <%= level_to_difficulty(@play_session.hunt.level) %></a></li>
                 <li><a><strong>Locations</strong>: <%= @play_session.hunt.locations.count %></a></li>
                 <li><a><strong>Au</strong>: 400</a></li>
                 <li><a><strong>Distance</strong>: 1.5 KM</a></li>

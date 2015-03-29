@@ -6,6 +6,26 @@ helpers  do
 #     end  
 #   end  
 
+### View Helpers
+
+  def level_to_difficulty(level)
+    
+    case level
+    when 1
+      'Super easy'
+    when 2
+      'Easy'
+    when 3
+      'Medium'
+    when 4
+      'Hard'
+    when 5
+      'Impossible'
+    end
+  end
+
+
+
   def user_available_hunts
 
     if @current_user.play_sessions.pluck(:hunt_id).any?
@@ -15,13 +35,21 @@ helpers  do
     end
   end
 
+### Actions Helpers
+  def top_huntrs(hunt)    
+    array_ids = PlaySession.where(hunt_id: @hunt.id).where(complete: true).pluck(:user_id)
+    array_ids.collect { |id| User.find(id) }  
+  end
+
   def check_answer(play_session,guess)
+
     right_answer = [play_session.location.lat, play_session.location.lon]
     distance = Geocoder::Calculations.distance_between(right_answer, guess)
     distance <= 5 #define tolerance
   end
 
   def play_session_next_location(play_session)
+
     next_location =  play_session.hunt.locations.where('id > (?)', play_session.location.id ).first
     if next_location 
       play_session.location = next_location
