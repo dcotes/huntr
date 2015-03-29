@@ -181,6 +181,7 @@ put '/play_sessions/:id' do
 
   play_session_next_hint(@play_session) if params[:hint_request] == 'true'
   result = check_answer(@play_session, [params[:guess_lat], params[:guess_lon]])
+
   play_session_next_location(@play_session) if result 
 
   redirect "/play_sessions/#{params[:id]}"

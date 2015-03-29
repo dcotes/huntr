@@ -30,30 +30,47 @@
 
                     <div class="col-md-12">
                     <ul>
-                    <li>Test</li>
+                      <% if @hints %>
+                        <% @hints.each do |hint| %>
+                          <li><%= hint.body %></li>
+                        <% end %>
+                      <% end %>
                     </ul>
                     </div>
-                    
-                    <form method='post' action="/play_sessions/<%= @play_session.id %>">
-                    <input name="_method" type="hidden" value="put" />
+
+                    <form id='hint_request' method='post' action="/play_sessions/<%= @play_session.id %>">
+                      <input form='hint_request' name="_method" type="hidden" value="put" />
+                    </form>
+                    <form id='guess_form' method='post' action="/play_sessions/<%= @play_session.id %>">
+                    <input form='guess_form' name="_method" type="hidden" value="put" />
                       <!-- <input type="submit" class="btn btn-primary btn-block btn-lg start_button" value="Next Hint">  
                       <input type="submit" class="btn btn-primary btn-block btn-lg start_button hint" value="Make a Guess"> -->
                       <div class="btn-group btn-group-justified" role="group" aria-label="...">
                         <div class="btn-group" role="group">
-                          <button type="button" class="btn btn-default">Hint</button>
+                          <input form='hint_request' type="submit"  class="btn btn-default" value="Hint">
+                          <input form='hint_request' name="hint_request" type="hidden" value="true" />
                         </div>
                         <div class="btn-group" role="group">
-                          <button type="button" class="btn btn-default">Guess</button>
+                          <input form='guess_form' type="submit" class="btn btn-default" value="Guess">
                         </div>
                         <div class="btn-group" role="group">
-                          <input type="submit" class="btn btn-default" value="Suspend">
+                          <input form='guess_form' type="submit" class="btn btn-default" value="Suspend">
                         </div>
                       </div>
-                      
-                        <h1>Dev: Temporary Guess Box</h1>
-                              <hr/>
-                              Latitude:<input type="text" name="guess_lat">
-                              Longitude:<input type="text" name="guess_lon">
+                        <hr/>
+                        <% if !@play_session.complete %>
+                        <h3>Dev: Temporary Guess Box</h3>
+                              
+                              Latitude:<input form='guess_form' type="text" name="guess_lat">
+                              Longitude:<input form='guess_form' type="text" name="guess_lon">
+                              <br>
+                              <p style="color:white; font-size:200%">lat:<span style="padding-left: 50px; padding-right:30px"><%= @play_session.location.lat %></span> 
+                              lon: <span style="padding-left: 50px;"><%= @play_session.location.lon %></span></p>  
+                        <% end %>
+                        <% if @play_session.complete %>
+                          <h1>Hunt COMPLETED!</h1>
+                        <% end %>
+                        <hr/>
                     </form>
                     </div>
                   </div>
