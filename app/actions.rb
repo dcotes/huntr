@@ -16,7 +16,7 @@ get '/' do
 
 end
 
-post '/user_sessions' do
+post '/user_sessions' do 
 
   @current_user = User.find_by(email: params[:email])
 
@@ -190,7 +190,7 @@ put '/play_sessions/:id' do
 
 
   play_session_next_hint(@play_session) if params[:hint_request] == 'true'
-  result = check_answer(@play_session, [params[:guess_lat], params[:guess_lon]])
+  result = @play_session.check_answer([params[:guess_lat], params[:guess_lon]])
 
   play_session_next_location(@play_session) if result 
 

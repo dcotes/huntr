@@ -7,4 +7,9 @@ class PlaySession < ActiveRecord::Base
 
   validates :user_id, uniqueness: { scope: :hunt_id }
 
+  def check_answer(guess) #return true if right answer, false if wrong
+    right_answer = [self.location.lat, self.location.lon]
+    distance = Geocoder::Calculations.distance_between(right_answer, guess)
+    distance <= 5 #define tolerance
+  end
 end
