@@ -12,7 +12,7 @@
 
                 <div id="myTabContent" class="tab-content">
                   <div class="tab-pane fade in active" id="detail">
-                  <div class="row"><p class="text-center">"By the biggest building in the city, find the lion."</div>
+                  <div class="row"><p class="text-center"><%= @play_session.location.clue %></div>
                     <div class="row">
                       <div class="col-md-12">
 
@@ -85,8 +85,15 @@
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                    <input type="submit" class="btn btn-primary btn-block btn-lg start_button" value="Next Hint">
-                    <input type="submit" class="btn btn-primary btn-block btn-lg start_button hint" value="Make a Guess">
+                    <form method='post' action="/play_sessions/<%= @play_session.id %>">
+                    <input name="_method" type="hidden" value="put" />
+                      <input type="submit" class="btn btn-primary btn-block btn-lg start_button" value="Next Hint">
+                              <h1>Dev: Temporary Guess Box</h1>
+                              <hr/>
+                              Latitude:<input type="text" name="guess_lat">
+                              Longitude:<input type="text" name="guess_lon">
+                      <input type="submit" class="btn btn-primary btn-block btn-lg start_button hint" value="Make a Guess">
+                    </form>
                     </div>
                   </div>
                 </div>
@@ -101,18 +108,18 @@
             <!-- break -->
             <div class="widget widget-sidebar widget-white">
               <div class="widget-header">
-                <h3>Dearest Stanley<br>
-                  <span class="hunt_location">Stanley Park</span><br>
+                <h3><%= @play_session.hunt.name %><br>
+                  <span class="hunt_location"><%= @play_session.hunt.city %></span><br>
                   <div class="hunt_stars logo_r"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
                 </h3>
-                <p></p>
+                
               </div>    
               <ul>
-                <li><a><strong>Difficulty</strong>: Easy</a></li>
-                <li><a><strong>Locations</strong>: 4</a></li>
+                <li><a><strong>Difficulty</strong>: <%= @play_session.hunt.level %></a></li>
+                <li><a><strong>Locations</strong>: <%= @play_session.hunt.locations.count %></a></li>
                 <li><a><strong>Au</strong>: 400</a></li>
                 <li><a><strong>Distance</strong>: 1.5 KM</a></li>
-                <li><a><strong>Time</strong>: 3 Hr</a></li>
+                <li><a><strong>Time</strong>: <%= @play_session.hunt.target_time %> Hr</a></li>
               </ul>
             </div>
             <!-- break -->
