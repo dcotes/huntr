@@ -1,0 +1,50 @@
+
+
+@media (max-width: 480px) {
+
+  body.hunt_native .col-md-12{
+   padding-right: 0px; 
+   padding-left: 0px;
+
+  }
+
+  body.hunt_native #footer{
+    display: hidden;
+  }
+
+  body.hunt_native #content{
+    padding: 0;
+  }
+
+  body.hunt_native .single-post .tab-content{
+    padding:0px;
+  }
+
+  body.hunt_native { 
+    overflow: hidden;
+  }
+
+  body.hunt_native .btn-group-justified{
+    position:fixed;
+    bottom:5px;
+    left:0px;
+  }
+
+  body.hunt_native .btn{
+    height:100px;
+    z-index: 100;
+    font-size: 2em;
+    margin-top: 0;
+
+
+  }
+
+  body.hunt_native .navbar-default .navbar-toggle{
+    margin-right: 25px;
+  }
+
+
+
+
+}
+
