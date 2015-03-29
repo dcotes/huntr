@@ -31,16 +31,16 @@
                     </div>
                   </div>
                   <div class="row">
-                    <form method='post' action='/play_sessions'>
                       <div class="col-md-12">
                       <% if @current_user && @current_user.play_sessions.any? { |play_session| play_session.hunt.id == @hunt.id} %>
-                        <a href="/play_sessions/<%= @current_user.play_sessions.find_by(hunt_id: @hunt.id).id %>" class="btn btn-primary btn-block btn-lg start_button">Resume!</a>
+                        <form method='post' action='/play_sessions'>
+                          <a href="/play_sessions/<%= @current_user.play_sessions.find_by(hunt_id: @hunt.id).id %>" class="btn btn-primary btn-block btn-lg start_button">Resume!</a>
+                        </form>
                       <% else %>
-                        <input  type="submit" class="btn btn-primary btn-block btn-lg start_button" value="Start Hunting!">
-                        <input name="hunt_id" type="hidden" value="<%= @hunt.id %>">
+                        <button class="btn btn-primary btn-block btn-lg start_button" data-toggle="modal" data-target="#modal-signin">Start Hunting!</button> 
                       <% end %>
                       </div>
-                    </form>
+                    
                   </div>
                 </div>
               </div>
