@@ -1,0 +1,46 @@
+
+
+@media (max-width: 480px) {
+
+  body.play_sessions .col-md-12{
+   padding-right: 0px; 
+   padding-left: 0px;
+
+  }
+
+  body.play_sessions #footer{
+    display: hidden;
+  }
+
+  body.play_sessions #content{
+    padding: 0;
+  }
+
+  body.play_sessions .single-post .tab-content{
+    padding:0px;
+  }
+
+  body.play_sessions { 
+    overflow: hidden;
+  }
+
+  body.play_sessions .btn-group-justified{
+    position:fixed;
+    bottom:5px;
+    left:0px;
+  }
+
+  body.play_sessions .btn{
+    height:80px;
+    z-index: 100;
+    font-size: 150%;
+
+  }
+
+  body.navbar-default .navbar-toggle{
+    margin-right: 28px;
+  }
+
+
+}
+
