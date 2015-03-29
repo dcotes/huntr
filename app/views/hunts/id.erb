@@ -78,10 +78,7 @@
                 <h3>Top Huntrs</h3>
               </div>    
               <ul>
-                <li><a href="#">John Doe</a></li>
-                <li><a href="#">Christoper Drew</a></li>
-                <li><a href="#">Jane Doe</a></li>
-                <li><a href="#">Jeny</a></li>
+              <% top_huntrs(@hunt).each do |hunter| %><li><a href="#"><%=hunter.email%></a></li><% end %>
               </ul>
             </div>
             <!-- break -->

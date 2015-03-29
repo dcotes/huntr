@@ -36,6 +36,10 @@ helpers  do
   end
 
 ### Actions Helpers
+  def top_huntrs(hunt)    
+    array_ids = PlaySession.where(hunt_id: @hunt.id).where(complete: true).pluck(:user_id)
+    array_ids.collect { |id| User.find(id) }  
+  end
 
   def check_answer(play_session,guess)
 

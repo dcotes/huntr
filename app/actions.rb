@@ -113,6 +113,7 @@ get '/hunts/:id' do
   #show specific user
   # redirect '/' if !@current_user
   @hunt = Hunt.find(params[:id])
+  top_huntrs(@hunt)
   erb :'hunts/id'
 end
 
