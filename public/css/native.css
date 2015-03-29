@@ -34,12 +34,18 @@
     height:80px;
     z-index: 100;
     font-size: 150%;
+    padding-bottom: 20px;
+  }
 
+  body.play_sessions .btn-success{
+    background-color: #3A5C86;
   }
 
   body.navbar-default .navbar-toggle{
-    margin-right: 28px;
+    margin-right: 30px;
   }
+
+
 
 
 
