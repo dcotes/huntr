@@ -6,6 +6,26 @@ helpers  do
 #     end  
 #   end  
 
+### View Helpers
+
+  def level_to_difficulty(level)
+    
+    case level
+    when 1
+      'Super easy'
+    when 2
+      'Easy'
+    when 3
+      'Medium'
+    when 4
+      'Hard'
+    when 5
+      'Impossible'
+    end
+  end
+
+
+
   def user_available_hunts
 
     if @current_user.play_sessions.pluck(:hunt_id).any?
@@ -14,6 +34,8 @@ helpers  do
       Hunt.all 
     end
   end
+
+### Actions Helpers
 
   def check_answer(play_session,guess)
 

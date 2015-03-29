@@ -88,12 +88,14 @@
               <div class="widget-header">
                 <h3><%= @play_session.hunt.name %><br>
                   <span class="hunt_location"><%= @play_session.hunt.city %></span><br>
-                  <div class="hunt_stars logo_r"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                  <div class="hunt_stars logo_r">
+                    <% @play_session.hunt.level.times do %> <i class="fa fa-star"></i> <% end %>
+                  </div>
                 </h3>
                 
               </div>    
               <ul>
-                <li><a><strong>Difficulty</strong>: <%= @play_session.hunt.level %></a></li>
+                <li><a><strong>Difficulty</strong>: <%= level_to_difficulty(@play_session.hunt.level) %></a></li>
                 <li><a><strong>Locations</strong>: <%= @play_session.hunt.locations.count %></a></li>
                 <li><a><strong>Au</strong>: 400</a></li>
                 <li><a><strong>Distance</strong>: 1.5 KM</a></li>

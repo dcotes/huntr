@@ -56,7 +56,9 @@
               <div class="widget-header">
                 <h3><%= @hunt.name %><br>
                   <span class="hunt_location"><%= @hunt.city %></span><br>
-                  <div class="hunt_stars logo_r"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                  <div class="hunt_stars logo_r">
+                    <% @hunt.level.times do %> <i class="fa fa-star"></i> <% end %>
+                  </div>
                 </h3>
                 <p></p>
               </div>    
