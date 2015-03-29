@@ -1,0 +1,7 @@
+/*fix image on index for mobile platform*/
+@media (max-width: 480px) {
+  .backstretch img{
+    position:static !important; 
+  } 
+}
+

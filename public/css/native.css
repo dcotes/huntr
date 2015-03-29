@@ -1,5 +1,4 @@
 
-
 @media (max-width: 480px) {
 
   body.play_sessions .col-md-12{
@@ -39,16 +38,12 @@
 
   body.play_sessions .btn-success{
     background-color: #3A5C86;
+    border-color:#3a5c86;
   }
 
   body.navbar-default .navbar-toggle{
     margin-right: 30px;
   }
-
-
-
-
-
 
 }
 
