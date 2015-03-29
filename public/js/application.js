@@ -12,13 +12,11 @@ $(document).ready(function() {
     $("#insert_location").text(provided_hunt_starting_location);
 
 
-    // new_hunt.elements["name"].value= provided_hunt_name;
-    // new_hunt.elements["name"].value= provided_hunt_starting_location;
-    // new_hunt.elements["name"].value= provided_hunt_difficulty;
-    // alert(new_hunt.elements["name"].value, );
+    new_hunt.elements["name"].value= provided_hunt_name;
+    new_hunt.elements["starting_location"].value= provided_hunt_starting_location;
+    new_hunt.elements["difficulty"].value= provided_hunt_difficulty;
+    // alert(new_hunt.elements["name"].value);
     
-
-    // <input type="hidden" name="name" value="dummy_name">
 
     $('#myTabContentOverlay').fadeOut(350);
     $('#content_mover').animate({"left": '+=15%'});
