@@ -68,13 +68,13 @@
                     <img src="https://www.paladinregistry.com/assets/icon-map-d9027152ea7aa05701d604aba74ef622.png">
                       <div class="property-price">
                         <h4><%= hunt.city %></h4>
-                        <span>500 <span class="logo_r">Au</span>
+                        <span><%= hunt.locations.count * hunt.level * 10 %> <span class="logo_r">Au</span>
                       </div>
                     </div>
                     <div class="property-features">
-                      <span><i class="fa fa-plane"></i> 5 KM</span>
-                      <span><i class="fa fa-map-marker"></i> 10 locations</span>
-                      <span><i class="fa fa-trophy"></i> Medium</span>
+                      <!-- <span><i class="fa fa-plane"></i> 5 KM</span> -->
+                      <span><i class="fa fa-map-marker"></i> <%= hunt.locations.count %> locations</span>
+                      <span><i class="fa fa-trophy"></i> <%= level_to_difficulty(hunt.level) %></span>
                     </div>
                     <div class="property-content">
                       <h3><a href="/hunts/<%= hunt.id %>"><%= hunt.name %></a> <small><%= hunt.description %></small></h3> 
