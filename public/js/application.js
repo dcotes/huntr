@@ -5,14 +5,16 @@ $(document).ready(function() {
 
 
     var provided_hunt_name = hunt_info.elements["hunt_name"].value;
+    var provided_hunt_description = hunt_info.elements["hunt_description"].value;
     var provided_hunt_starting_location = hunt_info.elements["hunt_location"].value;
     var provided_hunt_difficulty = hunt_info.elements["hunt_difficulty"].value;
 
+    $("#insert_description").text(provided_hunt_description);
     $("#insert_name").text(provided_hunt_name);
     $("#insert_difficulty").text(provided_hunt_difficulty);
     $("#insert_location").text(provided_hunt_starting_location);
 
-
+    new_hunt.elements["description"].value= provided_hunt_description;
     new_hunt.elements["name"].value= provided_hunt_name;
     new_hunt.elements["starting_location"].value= provided_hunt_starting_location;
     new_hunt.elements["difficulty"].value= provided_hunt_difficulty;
@@ -31,20 +33,27 @@ $(document).ready(function() {
   $('#add_hints_to_hunt').click(function(){ 
     counter++;
 
-    name_hint_1 = "hint_1_"+counter
-    name_hint_2 = "hint_2_"+counter
-    name_hint_3 = "hint_3_"+counter
+    name_hint_1 = "hint_1_"+counter;
+    name_hint_2 = "hint_2_"+counter;
+    name_hint_3 = "hint_3_"+counter;
+    name_clue =  "clue_"+counter;
 
+    var provided_clue = new_hint.elements["clue"].value;
     var provided_hint_1 = new_hint.elements["hint_1"].value;
     var provided_hint_2 = new_hint.elements["hint_2"].value;
     var provided_hint_3 = new_hint.elements["hint_3"].value;
-
     
+    
+        var input_clue = document.createElement("input");
 
-    // $("#insert_name").text(provided_hint_1);
-    // $("#insert_difficulty").text(provided_hint_2);
-    // $("#insert_location").text(provided_hint_3);
-    // alert(new_hunt.elements["name"].value);
+        input_clue.setAttribute("type", "hidden");
+
+        input_clue.setAttribute("form", "new_hunt");
+
+        input_clue.setAttribute("name", name_clue);
+
+        input_clue.setAttribute("value", provided_clue );
+
 
         var input_hint_1 = document.createElement("input");
 
@@ -56,6 +65,7 @@ $(document).ready(function() {
 
         input_hint_1.setAttribute("value",provided_hint_1 );
 
+
         var input_hint_2 = document.createElement("input");
 
         input_hint_2.setAttribute("type", "hidden");
@@ -65,6 +75,7 @@ $(document).ready(function() {
         input_hint_2.setAttribute("name", name_hint_2);
 
         input_hint_2.setAttribute("value",provided_hint_2 );
+
 
         var input_hint_3 = document.createElement("input");
 
@@ -80,10 +91,7 @@ $(document).ready(function() {
         document.getElementById("new_hunt").appendChild(input_hint_1);
         document.getElementById("new_hunt").appendChild(input_hint_2);
         document.getElementById("new_hunt").appendChild(input_hint_3);
-
-        console.log(provided_hint_1)
-        console.log(provided_hint_2)
-        console.log(provided_hint_3)
+        document.getElementById("new_hunt").appendChild(input_clue);
 
   });
     $('#add_hints_to_hunt').click(function(){ 
@@ -92,6 +100,7 @@ $(document).ready(function() {
     new_hint.elements["hint_1"].value = ""
     new_hint.elements["hint_2"].value = ""
     new_hint.elements["hint_3"].value = ""
+    new_hint.elements["clue"].value = ""
 
   });
 
@@ -160,8 +169,8 @@ $(document).ready(function() {
         // console.log (coordinate)
 
         console.log(i)
-        var  name_lat = 'location_lat'+i;
-        var  name_lng = 'location_lng'+i;
+        var  name_lat = 'lat_'+i;
+        var  name_lng = 'lng_'+i;
 
         var input_lat = document.createElement("input");
 

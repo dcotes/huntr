@@ -84,17 +84,29 @@ end
 
 post '/hunts' do
   binding.pry
-  #creates a new user
-  # redirect '/' if !@current_user
-  # binding.pry
 
-  # @hunt = Hunt.create(name: params[:name], level: params[:level], city: params[:password], description: params[:description], user_id: @current_user.id)
-  #   @location1 = Location.create(hunt_id: @hunt.id, lat: params[:location1_lat], lon: params[:location1_lon] , clue: params[:location1_clue] , name: params[:location1_name] )
-  #     @hint_l1 = Hint.create(location_id: @location1.id, body: params[:location1_hint])
-  #   @location2 = Location.create(hunt_id: @hunt.id, lat: params[:location2_lat], lon: params[:location2_lon] , clue: params[:location2_clue] , name: params[:location2_name] )
-  #     @hint_l2 = Hint.create(location_id: @location2.id, body: params[:location2_hint])
-  #   @location3 = Location.create(hunt_id: @hunt.id, lat: params[:location3_lat], lon: params[:location3_lon] , clue: params[:location3_clue] , name: params[:location3_name] )
-  #     @hint_l3 = Hint.create(location_id: @location3.id, body: params[:location2_hint])
+  redirect '/' if !@current_user  
+
+  @new_hunt = Hunt.create(name: params[:name], 
+                      level: params[:difficulty], 
+                      city: params[:starting_location], 
+                      description: params[:description], 
+                      user_id: @current_user.id)
+
+   num_loc = (params.size - 4)/6
+  
+   1.upto(num_loc) do |i|
+
+    location_num = params.select { |k,v| k[-1]== i.to_s }
+    binding.pry
+    @new_location = Location.create!(hunt_id: @new_hunt.id, name: "empty", lat: location_num["lat_#{i}"], lon: location_num["lng_#{i}"], clue: location_num["clue_#{i}"])
+            @hint1 = Hint.create!(location_id: @new_location.id, body: location_num["hint_1_#{i}"])
+            @hint1 = Hint.create!(location_id: @new_location.id, body: location_num["hint_2_#{i}"])
+            @hint1 = Hint.create!(location_id: @new_location.id, body: location_num["hint_3_#{i}"])
+  
+  end
+
+
 
   redirect '/hunts'
 end
@@ -190,7 +202,6 @@ put '/play_sessions/:id' do
   redirect '/' if !@current_user
 
   @play_session = PlaySession.find(params[:id])
-
 
   play_session_next_hint(@play_session) if params[:hint_request] == 'true'
   result = @play_session.check_answer([params[:guess_lat], params[:guess_lon]])
