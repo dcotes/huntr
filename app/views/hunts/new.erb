@@ -48,7 +48,7 @@
                               var poly;
                               var map;
                               var coords = [];
-                              // var image = 'https://cdn2.iconfinder.com/data/icons/antto-basic-1/407/Location-512.png'
+                              var image = '/img/map_pin_icon.png'
 
                               function initialise(location)
                               {
@@ -60,73 +60,78 @@
                                   //center map on users geolocation (from browser)
                                   center: currentLocation,
                                   zoom: 12,
-                                  mapTypeId: google.maps.MapTypeId.ROADMAP
-                                };
+                                  mapTypeId: google.maps.MapTypeId.ROADMAP };
 
 
-                                  map = new google.maps.Map(document.getElementById("map-canvas"),
-                                    mapOptions);
+                                  map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
 
                                   var polyOptions = {
                                     strokeColor: '#339966',
                                     strokeOpacity: 0.5,
-                                    strokeWeight: 2
-                                  };
+                                    strokeWeight: 2};
 
                                   poly = new google.maps.Polyline(polyOptions);
                                   poly.setMap(map);
 
 
                                   //add a listener for the click event
-
                                   google.maps.event.addListener(map, 'click', addLatLng);
 
                                 }
 
-
+                                  i=0;
                                   function addLatLng(event) {
-                                    console.log('marker placed at');
-                                    console.log(event.latLng);
+                                    // console.log('marker placed at');
+                                    // console.log(event.latLng);
                                     window.latLng = event.latLng;
-                                  //console.log(poly);
-                                  var path = poly.getPath();
-                                  // Because path is an MVCArray, we can simply append a new coordinate
-                                  // and it will automatically appear.
-                                  path.push(event.latLng);
+                                    i++;
+                                    //console.log(poly);
+                                    var path = poly.getPath();
+                                    // Because path is an MVCArray, we can simply append a new coordinate
+                                    // and it will automatically appear.
+                                    path.push(event.latLng);
 
-                                  var coordinate = {
-                                    lat: event.latLng.k,
-                                    lng: event.latLng.D
-                                  };
-                                  coords.push(coordinate);
-                                  console.log(coords[0].lat);
-                                  console.log(coords[0].lng);
-
-                                  // var lng = coords[0].lng;
+                                    var coordinate = { lat: event.latLng.k, lng: event.latLng.D };
+                                    coords.push(coordinate);
+                                    // console.log(coords[0].lat);
+                                    // console.log(coords[0].lng);
 
 
-                                  // var input_loc = document.createElement("input_loc");
+                                    // console.log (coordinate)
 
-                                  // input_loc.setAttribute("type", "hidden");
+                                    console.log(i)
+                                    var  name_lat = 'location_lat'+i;
+                                    var  name_lng = 'location_lng'+i;
 
-                                  // input_loc.setAttribute("name", "lng");
+                                    var input_lat = document.createElement("input");
 
-                                  // input_loc.setAttribute("value", lng);
+                                    input_lat.setAttribute("type", "hidden");
 
-                                  // console.log(input_loc);
+                                    input_lat.setAttribute("form", "new_hunt");
 
-                                  //append to form element that you want .
+                                    input_lat.setAttribute("name", name_lat);
+
+                                    input_lat.setAttribute("value", coordinate.lat);
+
+                                    var input_lon = document.createElement("input");
+
+                                    input_lon.setAttribute("type", "hidden");
+
+                                    input_lon.setAttribute("form", "new_hunt");
+
+                                    input_lon.setAttribute("name", name_lng);
+
+                                    input_lon.setAttribute("value", coordinate.lng);
 
 
-                                  // Add a new marker at the new plotted point on the polyline.
-                                  //console.log(marker);
-                                  // console.log(event.LatLng);
-                                  var marker = new google.maps.Marker({
-                                    position: event.latLng,
-                                    title: '#' + path.getLength(),
-                                    map: map,
-                                    // icon: image
-                                    });
+                                    document.getElementById("new_hunt").appendChild(input_lon);
+                                    document.getElementById("new_hunt").appendChild(input_lat);
+                                    var marker = new google.maps.Marker({
+                                      position: event.latLng,
+                                      title: '#' + path.getLength(),
+                                      map: map,
+                                      icon: image
+                                      });
                                   }
                                   $(document).ready(function()
                                     {
@@ -176,32 +181,11 @@
                         </div>
                       </div>
                       <div class="col-md-6 col-sm-6">
-                        <form>
-                          <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control input-lg" placeholder="Enter name : ">
-                          </div>
-                          <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" class="form-control input-lg" placeholder="Enter email : ">
-                          </div>
-                          <div class="form-group">
-                            <label for="telp">Telp.</label>
-                            <input type="text" class="form-control input-lg" placeholder="Enter phone number : ">
-                          </div>
-                          <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea class="form-control input-lg" rows="7" placeholder="Type a message : "></textarea>
-                          </div>
-                          <div class="form-group">
-                            <input type="submit" name="submit" value="Send Message" class="btn btn-primary btn-lg">
-                          </div>
-                        </form>
                       </div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-12"><input type="submit" class="btn btn-primary btn-block btn-lg start_button" value="Submit My Hunt To The Community!"></div>
+                    <div class="col-md-12"><input form='new_hunt' type="submit" class="btn btn-primary btn-block btn-lg start_button" value="Submit My Hunt To The Community!"></div>
                   </div>
                 </div>
               </div>
@@ -253,7 +237,7 @@
     <!-- end:content -->
 
   
-<form name="new_hunt" action="hunts/new" method="POST">
+<form id="new_hunt" action="/hunts" method="post">
   <div>
     <input type="hidden" name="name" value="dummy_name">
     <input type="hidden" name="starting_location" value="dummy_starting_location">
