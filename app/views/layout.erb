@@ -119,6 +119,7 @@
           </div>
           <div class="modal-body">
             <form id='signin_form' method='post' action='/user_sessions' role="form" >
+            <input type="hidden" name="current_url" value="<?php echo 'http://',$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];?>"  readonly/>
               <div class="form-group">
                 <label for="emailAddress">Email address</label>
                 <input name='email' type="email" class="form-control input-lg" placeholder="Enter email">
