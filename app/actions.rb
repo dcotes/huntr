@@ -83,7 +83,7 @@ get '/hunts' do
 end
 
 post '/hunts' do
-  binding.pry
+
 
   redirect '/' if !@current_user  
 
@@ -98,7 +98,7 @@ post '/hunts' do
    1.upto(num_loc) do |i|
 
     location_num = params.select { |k,v| k[-1]== i.to_s }
-    binding.pry
+  
     @new_location = Location.create!(hunt_id: @new_hunt.id, name: "empty", lat: location_num["lat_#{i}"], lon: location_num["lng_#{i}"], clue: location_num["clue_#{i}"])
             @hint1 = Hint.create!(location_id: @new_location.id, body: location_num["hint_1_#{i}"])
             @hint1 = Hint.create!(location_id: @new_location.id, body: location_num["hint_2_#{i}"])
@@ -161,7 +161,7 @@ post '/play_sessions' do
   #creates play_session
   redirect '/' if !@current_user
   @hunt = Hunt.find(params[:hunt_id])
-  # binding.pry
+  
   @play_session = PlaySession.create(user_id: @current_user.id,
                               hunt_id: params[:hunt_id],
                               location_id: @hunt.locations.first.id)

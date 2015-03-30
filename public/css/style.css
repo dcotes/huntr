@@ -200,8 +200,8 @@ input[type="color"]:focus,
 }
 
 .btn-success{
-	background-color: #48cfad;
-	border-color: #37bc9b;
+	background-color: #3A5C86;
+	border-color: #CD9C4E;
 }
 
 .btn-success:hover,
@@ -209,8 +209,8 @@ input[type="color"]:focus,
 .btn-success:active,
 .btn-success.active,
 .btn-success.dropdown-toggle{
-	background-color: #37bc9b;
-	border-color: #37bc9b;
+	background-color: #CD9C4E;
+	border-color: #CD9C4E;
 }
 
 .btn-warning{

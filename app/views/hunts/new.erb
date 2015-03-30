@@ -20,10 +20,19 @@
                     <div class="form-group">
                       <input type="text" name ="hunt_location" class="form-control input-lg" placeholder="Enter Starting Location">
                     </div>
+
                     <div class="form-group">
-                      <input type="text" name ="hunt_difficulty" class="form-control input-lg" placeholder="Select Dificulty ...number 1 to 5">
-                    </div>
-                    
+
+                      <label>Choose Difficulty</label>
+                      <select class="form-control input-lg" id="hunt_difficulty" name ="hunt_difficulty">
+                        <option value="1">Super Easy</option>
+                        <option value="2">Easy</option>
+                        <option value="3">Medium</option>
+                        <option value="4">Hard</option>
+                        <option value="5">Impossible</option>
+                      </select>
+                    </div> 
+
                     <div class="row">
                     <div class="col-md-12"><input id="hide_form"  class="btn btn-primary btn-block btn-lg start_button bottom" value="Next - Plan My Hunt!"></div>
                   </div>
