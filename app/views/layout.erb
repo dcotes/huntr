@@ -188,6 +188,48 @@
     </div>
     <!-- end:modal-signup -->
 
+
+       <!-- begin:modal-signin -->
+    <div class="modal fade" id="modal-hint" tabindex="-1" role="dialog" aria-labelledby="modal-hint" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Add Hints To Your Hunt</h4>
+          </div>
+          <div class="modal-body">
+            <form id='signin_form' method='post' action='/user_sessions' role="form" >
+            <input type="hidden" name="current_url" value="<?php echo 'http://',$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];?>"  readonly/>
+
+              <div class="form-group">
+                <label for="emailAddress">Easy Hint</label>
+                <input name='email' type="email" class="form-control input-lg" placeholder="Hint">
+              </div>
+
+              <div class="form-group">
+                <label for="emailAddress">Moderate Hint</label>
+                <input name='email' type="email" class="form-control input-lg" placeholder="Hint">
+              </div>
+
+              <div class="form-group">
+                <label for="emailAddress">Difficult Hint</label>
+                <input name='email' type="email" class="form-control input-lg" placeholder="Hint">
+              </div>
+
+              <div class="modal-footer">
+                <input form='signup_form' type="submit" class="btn btn-primary btn-block btn-lg" value="Add Hints To Hunt">
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end:modal-signin -->
+
+
+<!--  -->
+
      <!-- begin:footer -->
     <div id="footer">
       <div class="container">

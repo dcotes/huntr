@@ -31,7 +31,7 @@ $(document).ready(function() {
 
 
     $('#map-canvas').click(function(){ 
-    $('#modal-signup').modal('toggle');
+    $('#modal-hint').modal('toggle');
 
   });
 
@@ -132,5 +132,3 @@ $(document).ready(function() {
 
 
 });
-
-
