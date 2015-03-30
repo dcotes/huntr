@@ -34,7 +34,14 @@
                     <form method='post' action='/play_sessions'>
                       <div class="col-md-12">
                       <% if @current_user && @current_user.play_sessions.any? { |play_session| play_session.hunt.id == @hunt.id} %>
-                        <a href="/play_sessions/<%= @current_user.play_sessions.find_by(hunt_id: @hunt.id).id %>" class="btn btn-primary btn-block btn-lg start_button">Resume!</a>
+                        <% if  @current_user.play_sessions.find_by(hunt_id: @hunt.id).complete %>
+                          <a class="btn btn-primary btn-block btn-lg start_button">complete!</a>
+                          <% else %>    
+
+                            <a href="/play_sessions/<%= @current_user.play_sessions.find_by(hunt_id: @hunt.id).id %>" class="btn btn-primary btn-block btn-lg start_button">Resume!</a>
+                        <% end %>
+
+
                       <% else %>
                         <input type="submit" class="btn btn-primary btn-block btn-lg start_button" value="Start Hunting!">
                         <input name="hunt_id" type="hidden" value="<%= @hunt.id %>">
