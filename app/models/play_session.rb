@@ -10,6 +10,6 @@ class PlaySession < ActiveRecord::Base
   def check_answer(guess) #return true if right answer, false if wrong
     right_answer = [self.location.lat, self.location.lon]
     distance = Geocoder::Calculations.distance_between(right_answer, guess)
-    distance <= 5 #define tolerance
+    distance <= 0.01 #define tolerance
   end
 end
