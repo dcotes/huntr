@@ -37,7 +37,7 @@ helpers  do
 
 ### Actions Helpers
   def top_huntrs(hunt)    
-    array_ids = PlaySession.where(hunt_id: @hunt.id).where(complete: true).pluck(:user_id)
+    array_ids = PlaySession.where(hunt_id: @hunt.id).where(complete: true).order('created_at - updated_at').pluck(:user_id)
     array_ids.collect { |id| User.find(id) }  
   end
 

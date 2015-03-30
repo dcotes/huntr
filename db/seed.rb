@@ -12,8 +12,8 @@ class Seed
       @user1 = User.create!(email: 'andsbf@gmail.com', nickname: 'Anderson', password: '123')
       @user2 = User.create!(email: 'andrew@good.com', nickname: 'drew', password: '123')
   
-        @hunt1 = Hunt.create!(user_id: @user1.id, name: 'Van downtown', level: 2, city: 'Vancouver', description: 'find the treasures behind downtown vancouver')
-          @location1 = Location.create!(hunt_id: @hunt1.id, name: 'roger stadium', lat: 49.2794823, lon: -123.1105213, clue: 'house of the canucks')
+        @hunt1 = Hunt.create!(user_id: @user1.id, name: 'Van downtown', level: 2, city: 'Vancouver', description: 'places around DT')
+          @location1 = Location.create!(hunt_id: @hunt1.id, name: 'Light House Labs', lat: 49.2821612, lon: -123.10826709999999, clue: 'Ruby + Sinatra + JS + ...')
             @hint1 = Hint.create!(location_id: @location1.id, body: 'Hint 1')
             @hint2 = Hint.create!(location_id: @location1.id, body: 'Hint 2')
             @hint3 = Hint.create!(location_id: @location1.id, body: 'Hint 3')
@@ -74,6 +74,28 @@ class Seed
           @hint22 = Hint.create!(location_id: @location12.id, body: 'Hint 34')
           @hint23 = Hint.create!(location_id: @location12.id, body: 'Hint 35')
           @hint24 = Hint.create!(location_id: @location12.id, body: 'Hint 36')
+
+  
+        @hunt4 = Hunt.create!(user_id: @user2.id, name: 'Light House Labs', level: 5, city: 'Vancouver', description: 'Treasures in the cave!')
+          @location13 = Location.create!(hunt_id: @hunt4.id, name: 'Light House Labs', lat: 49.2821612, lon: -123.10826709999999, clue: 'free coffe')
+            @hint25 = Hint.create!(location_id: @location13.id, body: 'Hint 37')
+            @hint26 = Hint.create!(location_id: @location13.id, body: 'Hint 38')
+            @hint27 = Hint.create!(location_id: @location13.id, body: 'Hint 39')
+  
+          @location14 = Location.create!(hunt_id: @hunt4.id, name: 'Light House Labs', lat: 49.2821612, lon: -123.10826709999999, clue: 'Mac_tv_behavior = Rand(857)')
+            @hint28 = Hint.create!(location_id: @location14.id, body: 'Hint 40')
+            @hint29 = Hint.create!(location_id: @location14.id, body: 'Hint 41')
+            @hint30 = Hint.create!(location_id: @location14.id, body: 'Hint 42')
+  
+          @location15 = Location.create!(hunt_id: @hunt4.id, name: 'Light House Labs', lat: 49.2821612, lon: -123.10826709999999, clue: 'Beer for $2.5 ...')
+            @hint31 = Hint.create!(location_id: @location15.id, body: 'Hint 43')
+            @hint32 = Hint.create!(location_id: @location15.id, body: 'Hint 44')
+            @hint33 = Hint.create!(location_id: @location15.id, body: 'Hint 45')
+      
+          @location16 = Location.create!(hunt_id: @hunt4.id, name: 'Light House Labs', lat: 49.2821612, lon: -123.10826709999999, clue: 'Seating for 12h a days')
+            @hint34 = Hint.create!(location_id: @location16.id, body: 'Hint 46')
+            @hint35 = Hint.create!(location_id: @location16.id, body: 'Hint 47')
+            @hint36 = Hint.create!(location_id: @location16.id, body: 'Hint 48')
     end
   end
 end

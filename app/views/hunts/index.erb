@@ -61,7 +61,7 @@
 
             <!-- begin:product -->
             <div class="row container-realestate">
-              <% @hunts.each do |hunt| %>
+              <% @hunts.order('created_at DESC').each do |hunt| %>
                 <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="property-container">
                     <div class="property-image">
