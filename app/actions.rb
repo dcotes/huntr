@@ -148,6 +148,7 @@ post '/play_sessions' do
   #creates play_session
   redirect '/' if !@current_user
   @hunt = Hunt.find(params[:hunt_id])
+  # binding.pry
   @play_session = PlaySession.create(user_id: @current_user.id,
                               hunt_id: params[:hunt_id],
                               location_id: @hunt.locations.first.id)
