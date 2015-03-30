@@ -77,3 +77,7 @@ z-index: 10;
   outline: none;
 }
 
+.btn-success{
+  backgroung-color:#3A5C86 !important;
+}
+
