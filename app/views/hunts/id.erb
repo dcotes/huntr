@@ -72,7 +72,7 @@
               <ul>
                 <li><a><strong>Difficulty</strong>: <%= level_to_difficulty(@hunt.level) %></a></li>
                 <li><a><strong>Locations</strong>: <%= @hunt.locations.count %></a></li>
-                <li><a><strong>Au</strong>: 400</a></li>
+                <li><a><strong>Au</strong>: <%= @hunt.locations.count * @hunt.level * 10 %></a></li>
                 <li><a><strong>Distance</strong>: 1.5 KM</a></li>
                 <li><a><strong>Time</strong>: <%= @hunt.target_time %> Hr</a></li>
               </ul>
