@@ -85,7 +85,7 @@ end
 post '/hunts' do
   #creates a new user
   # redirect '/' if !@current_user
-  binding.pry
+  # binding.pry
 
   # @hunt = Hunt.create(name: params[:name], level: params[:level], city: params[:password], description: params[:description], user_id: @current_user.id)
   #   @location1 = Location.create(hunt_id: @hunt.id, lat: params[:location1_lat], lon: params[:location1_lon] , clue: params[:location1_clue] , name: params[:location1_name] )
