@@ -42,6 +42,11 @@ $(document).ready(function() {
     var provided_hint_1 = new_hint.elements["hint_1"].value;
     var provided_hint_2 = new_hint.elements["hint_2"].value;
     var provided_hint_3 = new_hint.elements["hint_3"].value;
+
+
+    
+
+
     
     
         var input_clue = document.createElement("input");
@@ -93,6 +98,16 @@ $(document).ready(function() {
         document.getElementById("new_hunt").appendChild(input_hint_3);
         document.getElementById("new_hunt").appendChild(input_clue);
 
+        // $("#add_points").append("<div id='mine'></div>");
+        var $newH4 = $('<h4>');
+        $newH4.text(provided_clue).addClass( "sb_special" );
+        var $newUL = $('<ul>');
+        var $firstClue = $('<li>').text(provided_hint_1).addClass( "sb_special_li" );
+        var $secondClue = $('<li>').text(provided_hint_2).addClass( "sb_special_li" );
+        var $thirdClue = $('<li>').text(provided_hint_3).addClass( "sb_special_li" );
+        $newUL.append($firstClue).append($secondClue).append($thirdClue)
+        $("#add_points").append($newH4).append($newUL);
+
   });
     $('#add_hints_to_hunt').click(function(){ 
     $('#modal-hint').modal('toggle');
@@ -105,7 +120,7 @@ $(document).ready(function() {
   });
 
     $('#map-canvas').click(function(){ 
-    $('#modal-hint').modal('toggle');
+    
 
   });
 
@@ -200,7 +215,7 @@ $(document).ready(function() {
           title: '#' + path.getLength(),
           map: map,
           icon: image
-      });
+      }); $('#modal-hint').modal('toggle');
     }
 
 
