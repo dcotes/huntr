@@ -171,12 +171,23 @@ $(document).ready(function() {
         i++;
         //console.log(poly);
         var path = poly.getPath();
+        length = google.maps.geometry.spherical.computeLength(path.getArray());
+        console.log(length);
+        length = Math.round(1.45*length/1000);
+        time = length/5;
+        num_location = coords.length + 1;
+        console.log(num_location);
+
+        $("#dynamic_location").text(num_location);
+        $("#dynamic_distance").text(length+" KM");
+        $("#dynamic_time").text(+time+" Hr");
         // Because path is an MVCArray, we can simply append a new coordinate
         // and it will automatically appear.
         path.push(event.latLng);
 
         var coordinate = { lat: event.latLng.k, lng: event.latLng.D };
         coords.push(coordinate);
+
         // console.log(coords[0].lat);
         // console.log(coords[0].lng);
 
