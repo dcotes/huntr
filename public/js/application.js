@@ -28,7 +28,7 @@ $(document).ready(function() {
 
   });
   var counter = 0;
-  $('add_hints_to_hunt').click(function(){ 
+  $('#add_hints_to_hunt').click(function(){ 
     counter++;
 
     name_hint_1 = "hint_1_"+counter
@@ -38,6 +38,8 @@ $(document).ready(function() {
     var provided_hint_1 = new_hint.elements["hint_1"].value;
     var provided_hint_2 = new_hint.elements["hint_2"].value;
     var provided_hint_3 = new_hint.elements["hint_3"].value;
+
+    
 
     // $("#insert_name").text(provided_hint_1);
     // $("#insert_difficulty").text(provided_hint_2);
@@ -74,6 +76,11 @@ $(document).ready(function() {
 
         input_hint_3.setAttribute("value",provided_hint_3 );
 
+
+        document.getElementById("new_hunt").appendChild(input_hint_1);
+        document.getElementById("new_hunt").appendChild(input_hint_2);
+        document.getElementById("new_hunt").appendChild(input_hint_3);
+
         console.log(provided_hint_1)
         console.log(provided_hint_2)
         console.log(provided_hint_3)
@@ -81,6 +88,10 @@ $(document).ready(function() {
   });
     $('#add_hints_to_hunt').click(function(){ 
     $('#modal-hint').modal('toggle');
+
+    new_hint.elements["hint_1"].value = ""
+    new_hint.elements["hint_2"].value = ""
+    new_hint.elements["hint_3"].value = ""
 
   });
 
