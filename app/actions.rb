@@ -83,6 +83,7 @@ get '/hunts' do
 end
 
 post '/hunts' do
+  binding.pry
   #creates a new user
   # redirect '/' if !@current_user
   # binding.pry

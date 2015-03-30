@@ -27,8 +27,62 @@ $(document).ready(function() {
 
 
   });
+  var counter = 0;
+  $('add_hints_to_hunt').click(function(){ 
+    counter++;
 
+    name_hint_1 = "hint_1_"+counter
+    name_hint_2 = "hint_2_"+counter
+    name_hint_3 = "hint_3_"+counter
 
+    var provided_hint_1 = new_hint.elements["hint_1"].value;
+    var provided_hint_2 = new_hint.elements["hint_2"].value;
+    var provided_hint_3 = new_hint.elements["hint_3"].value;
+
+    // $("#insert_name").text(provided_hint_1);
+    // $("#insert_difficulty").text(provided_hint_2);
+    // $("#insert_location").text(provided_hint_3);
+    // alert(new_hunt.elements["name"].value);
+
+        var input_hint_1 = document.createElement("input");
+
+        input_hint_1.setAttribute("type", "hidden");
+
+        input_hint_1.setAttribute("form", "new_hunt");
+
+        input_hint_1.setAttribute("name", name_hint_1);
+
+        input_hint_1.setAttribute("value",provided_hint_1 );
+
+        var input_hint_2 = document.createElement("input");
+
+        input_hint_2.setAttribute("type", "hidden");
+
+        input_hint_2.setAttribute("form", "new_hunt");
+
+        input_hint_2.setAttribute("name", name_hint_2);
+
+        input_hint_2.setAttribute("value",provided_hint_2 );
+
+        var input_hint_3 = document.createElement("input");
+
+        input_hint_3.setAttribute("type", "hidden");
+
+        input_hint_3.setAttribute("form", "new_hunt");
+
+        input_hint_3.setAttribute("name", name_hint_3);
+
+        input_hint_3.setAttribute("value",provided_hint_3 );
+
+        console.log(provided_hint_1)
+        console.log(provided_hint_2)
+        console.log(provided_hint_3)
+
+  });
+    $('#add_hints_to_hunt').click(function(){ 
+    $('#modal-hint').modal('toggle');
+
+  });
 
     $('#map-canvas').click(function(){ 
     $('#modal-hint').modal('toggle');

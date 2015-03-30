@@ -128,7 +128,7 @@
           </div>
           <div class="modal-body">
             <form id='signin_form' method='post' action='/user_sessions' role="form" >
-            <input type="hidden" name="current_url" value="<?php echo 'http://',$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];?>"  readonly/>
+            <input type="hidden" name="current_url"  readonly/>
               <div class="form-group">
                 <label for="emailAddress">Email address</label>
                 <input name='email' type="email" class="form-control input-lg" placeholder="Enter email">
@@ -198,26 +198,26 @@
             <h4 class="modal-title">Add Hints To Your Hunt</h4>
           </div>
           <div class="modal-body">
-            <form id='signin_form' method='post' action='/user_sessions' role="form" >
+            <form id='new_hint' >
             <input type="hidden" name="current_url" value="<?php echo 'http://',$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];?>"  readonly/>
 
               <div class="form-group">
                 <label for="emailAddress">Easy Hint</label>
-                <input name='email' type="email" class="form-control input-lg" placeholder="Hint">
+                <input name='hint_1' type="text" class="form-control input-lg" placeholder="Hint">
               </div>
 
               <div class="form-group">
                 <label for="emailAddress">Moderate Hint</label>
-                <input name='email' type="email" class="form-control input-lg" placeholder="Hint">
+                <input name='hint_2' type="text" class="form-control input-lg" placeholder="Hint">
               </div>
 
               <div class="form-group">
                 <label for="emailAddress">Difficult Hint</label>
-                <input name='email' type="email" class="form-control input-lg" placeholder="Hint">
+                <input name='hint_3' type="text" class="form-control input-lg" placeholder="Hint">
               </div>
 
               <div class="modal-footer">
-                <input form='signup_form' type="submit" class="btn btn-primary btn-block btn-lg" value="Add Hints To Hunt">
+                <input id='add_hints_to_hunt' class="btn btn-primary btn-block btn-lg" value="Add Hints To Hunt">
               </div>
               
             </form>
