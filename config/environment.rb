@@ -9,7 +9,7 @@ require 'sinatra/activerecord'
 
 require 'geocoder'
 
-require 'pry'
+require 'pry' if development?
 
 
 
