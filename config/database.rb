@@ -9,7 +9,7 @@ configure do
   #   database: "db/db.sqlite3"
   # }
 
-  if Sinatra::Application.development?
+  if development?
   set :database, {
     adapter: "sqlite3",
     database: "db/db.sqlite3"
