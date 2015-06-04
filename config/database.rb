@@ -15,7 +15,7 @@ configure do
     database: "db/db.sqlite3"
   }
 else
-  set :database, ENV['DATABASE_URL']
+  set :database, ENV['ec2-54-83-25-238.compute-1.amazonaws.com']
 end
 
   # Load all models from app/models, using autoload instead of require
